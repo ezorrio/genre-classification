@@ -1,3 +1,5 @@
+# When drawing uniformly from this matrix, this equals the sought-for probabilities. 
+
 import numpy as np
 
 def generate_R(rows, columns):
