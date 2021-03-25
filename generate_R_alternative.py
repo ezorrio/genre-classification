@@ -1,8 +1,8 @@
 import numpy as np
 
 def generate_R(rows, columns):
-    """ Generates sparse zeros-matrix with 1/6-th having sqrt(3) and
-    1/6-th having -sqrt(3). """
+    """ Generates sparse zeros-matrix with 1/6-th having -sqrt(3) and
+    1/6-th having sqrt(3). """
     
     R = np.zeros((rows*columns))
     
