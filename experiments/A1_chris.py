@@ -26,7 +26,7 @@ def generate_R(rows, columns):
 
 # similarities
 def cosine_similarity(vec1, vec2):
-    return np.dot(vec1, vec2) / (np.linalg.norm(vec1)*np.linalg.norm(vec2))
+    return np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2))
 
 def euclidean_similarity(vec1, vec2):
     return np.linalg.norm(vec1-vec2)
@@ -90,7 +90,7 @@ class LSH:
     """ Class for finding similar tracks and computing k neighbors to find 
         predicted genre. """
     
-    def __init__(self, n, l, k, train):
+    def __init__(self, train, n=5, l=10, k=5):
         self.n = n # number of hash tables
         self.l = l # hash length
         self.k = k # number of neighbors considered
@@ -103,6 +103,7 @@ class LSH:
         """ Loops over every track in the test set and finds tracks of training set 
             with the same hash value in at least one hash table. """
         
+        # Generate hashes for test set
         R = generate_R(self.l, test.shape[1])
         p = (np.dot(R, test.T) > 0).astype('int')
 
@@ -124,44 +125,44 @@ class LSH:
             predicted genre for the test set. """
         
         similar = self.find_similar(test)
-        
         results = dict()
- 
+        
+        # Finds neighbors either based on cosine- or euclidean similarity measure
         if measure == 'Cosine':     
 
-            for val_track in similar:
             # iterates trough test tracks
+            for val_track in similar:
                 index1 = np.where(test.index == val_track)[0][0]
-                vec1 = test.iloc[index1]   
+                vec1 = test.iloc[index1] # feature vector
                 results[val_track] = []
             
-                    # Finds neighbors either based on cosine- or euclidean similarity measure
+                # iterates through similar training tracks for given validation track
                 for similar_track in similar[val_track]:
-                # iterates through similar training tracks for given test track
                     index2 = np.where(self.train.index == similar_track)[0][0]
-                    vec2 = self.train.iloc[index2]
+                    vec2 = self.train.iloc[index2] # feature vector
                     results[val_track].append([similar_track, cosine_similarity(vec1, vec2)])
                 results[val_track] = sorted(results[val_track], key=lambda l:l[1], reverse=True)[:k]
             
         elif measure == 'Euclidean':
             
-            for val_track in similar:
             # iterates trough test tracks
+            for val_track in similar:
                 index1 = np.where(test.index == val_track)[0][0]
                 vec1 = test.iloc[index1]   
                 results[val_track] = []
                 
+                # iterates through similar training tracks for given validation track
                 for similar_track in similar[val_track]:
-                # iterates through similar training tracks for given test track
                     index2 = np.where(self.train.index == similar_track)[0][0]
                     vec2 = self.train.iloc[index2]
                     results[val_track].append([similar_track, euclidean_similarity(vec1, vec2)])
                 results[val_track] = sorted(results[val_track], key=lambda l:l[1], reverse=False)[:k]
                 
-        # genre classification
+        # Genre classification
         track_ids = [track[0] for track in results[val_track]]
         indices = [np.where(self.train.index == id)[0][0] for id in track_ids]
         genres = [y_train.iloc[index] for index in indices]
+        
         if genres != []:
             results[val_track] = most_common(genres)
     
@@ -177,10 +178,11 @@ m = measures[0]
 
 start = datetime.datetime.now()
 
-lsh = LSH(n, l, k, x_train)
+lsh = LSH(x_train, n, l, k)
 results = lsh.k_neighbors(x_val, k, measure=m)
 
 u = 0
+# Checks whether computed genre equals the actual genre
 for result in results:
     id = np.where(y_val.index == result)[0][0]
     check = y_val.iloc[id]
