@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt # %matplotlib qt for plots in separate window
 import pandas as pd
 import datetime
 
+# ------------------ Functions -------------------------------------
+
 def generate_R(rows, columns):
     """ Generates sparse zeros-matrix with 1/6-th having sqrt(3) and
     1/6-th having sqrt(3). """
@@ -33,6 +35,8 @@ def euclidean_similarity(vec1, vec2):
 
 def most_common(List):
     return max(set(List), key = List.count)
+
+# -----------------------------------------------------------------
 
 #%% Feature & Track - extraction
 tracks = pd.read_csv('../metadata/tracks.csv', index_col=0, header=[0, 1])
