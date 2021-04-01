@@ -38,25 +38,7 @@ def most_common(List):
 
 # -----------------------------------------------------------------
 
-#%% Feature & Track - extraction
-tracks = pd.read_csv('../metadata/tracks.csv', index_col=0, header=[0, 1])
-
-train = tracks['set', 'split'] == 'training'
-val = tracks['set', 'split'] == 'validation'
-test = tracks['set', 'split'] == 'test'
-small = tracks['set', 'subset'] == 'small'
-
-features = pd.read_csv('../metadata/features.csv', index_col=0, header=[0, 1, 2])
-
-x_train = features.loc[small & train, 'mfcc']
-x_test = features.loc[small & test, 'mfcc']
-x_val = features.loc[small & val, 'mfcc']
-
-y_train = tracks.loc[small & train, ('track', 'genre_top')]
-y_test = tracks.loc[small & test, ('track', 'genre_top')]
-y_val = tracks.loc[small & val, ('track', 'genre_top')]
-
-#%% Classes for hash table and LHS
+# ------------------ Classes -------------------------------------
 
 class HashTable:
     """ class for one single hash table """
@@ -171,6 +153,26 @@ class LSH:
             results[val_track] = most_common(genres)
     
         return results
+    
+# -----------------------------------------------------------------
+
+#%% Feature & Track - extraction
+tracks = pd.read_csv('../metadata/tracks.csv', index_col=0, header=[0, 1])
+
+train = tracks['set', 'split'] == 'training'
+val = tracks['set', 'split'] == 'validation'
+test = tracks['set', 'split'] == 'test'
+small = tracks['set', 'subset'] == 'small'
+
+features = pd.read_csv('../metadata/features.csv', index_col=0, header=[0, 1, 2])
+
+x_train = features.loc[small & train, 'mfcc']
+x_test = features.loc[small & test, 'mfcc']
+x_val = features.loc[small & val, 'mfcc']
+
+y_train = tracks.loc[small & train, ('track', 'genre_top')]
+y_test = tracks.loc[small & test, ('track', 'genre_top')]
+y_val = tracks.loc[small & val, ('track', 'genre_top')]
 
 #%%%%
 # hyperparameters
@@ -180,6 +182,7 @@ k = 7
 measures = ['Cosine', 'Euclidean']
 m = measures[0]
 
+# Genre computation
 start = datetime.datetime.now()
 
 lsh = LSH(x_train, n, l, k)
