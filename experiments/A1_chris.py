@@ -122,7 +122,7 @@ class LSH:
                 vec1 = test.iloc[index1] # feature vector
                 results[val_track] = []
             
-                # iterates through similar training tracks for given validation track
+                # iterates through similar training tracks for given test track
                 for similar_track in similar[val_track]:
                     index2 = np.where(self.train.index == similar_track)[0][0]
                     vec2 = self.train.iloc[index2] # feature vector
@@ -137,7 +137,7 @@ class LSH:
                 vec1 = test.iloc[index1]   
                 results[val_track] = []
                 
-                # iterates through similar training tracks for given validation track
+                # iterates through similar training tracks for given test track
                 for similar_track in similar[val_track]:
                     index2 = np.where(self.train.index == similar_track)[0][0]
                     vec2 = self.train.iloc[index2]
