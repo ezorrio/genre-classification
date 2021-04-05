@@ -15,10 +15,10 @@ def generate_R(rows, columns):
     """ Generates sparse zeros-matrix with 1/6-th having sqrt(3) and
     1/6-th having sqrt(3). """
     
-    R = np.zeros((rows*columns))
+    R = np.zeros((rows * columns))
     
     # 1/6 of length of matrix
-    j = int(np.round(rows*columns / 6))
+    j = int(np.round(rows * columns / 6))
     
     # overwrites 1/6-th of array with sqrt(3) and 1/6-th with -sqrt(3)
     R[:j] = np.sqrt(3); R[j:2*j] = -np.sqrt(3)
@@ -100,7 +100,7 @@ class LSH:
 
             for hash_table in self.hash_tables:
                 results[track_id].extend(hash_table.query(test.iloc[index]))
-            results[track_id] = set(results[track_id]) # duplicates!
+            results[track_id] = list(set(results[track_id])) # duplicates!
         
         return results
 
@@ -166,6 +166,71 @@ class LSH:
                 print("no valid similarity measure!!!")
 
             return results
+        
+    def k_neighbors_approx(self, x_test, y_train, k=5, measure = 'Cosine'):
+        """ Uses subset of results of find_similar to obtain the k-most similar tracks for each 
+            track in test set. Returns a dictionary containing the track ids and the 
+            predicted genre for the test set. """
+        
+        similar = self.find_similar(x_test)
+        results = dict()
+        
+        # Finds neighbors either based on cosine- or euclidean similarity measure
+        if measure == 'Cosine':     
+
+            # iterates trough test tracks
+            for count, track_id in enumerate(similar):
+                index1 = np.where(x_test.index == track_id)[0][0]
+                vec1 = x_test.iloc[index1] # feature vector
+                results[track_id] = []
+                
+                # iterates through random subset of similar training tracks for given validation track_id
+                # in order to reduce complexity
+                for similar_track in np.random.choice(similar[track_id], 800, replace=True):
+                    index2 = np.where(self.train.index == similar_track)[0][0]
+                    vec2 = self.train.iloc[index2] # feature vector
+                    results[track_id].append([similar_track, cosine_similarity(vec1, vec2)])
+                results[track_id] = sorted(results[track_id], key=lambda l:l[1], reverse=True)[:k]
+            
+                # Genre classification
+                track_ids = [track_id[0] for track_id in results[track_id]]
+                indices = [np.where(self.train.index == id)[0][0] for id in track_ids]
+                genres = [y_train.iloc[index] for index in indices]
+                
+                if genres != []:
+                    results[track_id] = most_common(genres)
+                
+                # Counter
+                if (10*count/len(similar)) % 1 == 0 and (count/len(similar)) != 0:
+                    print(f"{round(100*count/len(similar))} % Done")
+    
+        elif measure == 'Euclidean':
+            
+            # iterates trough test tracks
+            for track_id in similar:
+                index1 = np.where(x_test.index == track_id)[0][0]
+                vec1 = x_test.iloc[index1]   
+                results[track_id] = []
+                
+                # iterates through similar training tracks for given validation track_id
+                for similar_track in np.random.choice(similar[track_id], 800, replace=True):
+                    index2 = np.where(self.train.index == similar_track)[0][0]
+                    vec2 = self.train.iloc[index2]
+                    results[track_id].append([similar_track, euclidean_similarity(vec1, vec2)])
+                results[track_id] = sorted(results[track_id], key=lambda l:l[1], reverse=False)[:k]
+        
+                # Genre classification            
+                track_ids = [track_id[0] for track_id in results[track_id]]
+                indices = [np.where(self.train.index == id)[0][0] for id in track_ids]
+                genres = [y_train.iloc[index] for index in indices]
+                
+                if genres != []:
+                    results[track_id] = most_common(genres)
+        
+        else:
+            print("no valid similarity measure!!!")
+
+        return results
 
 #%%
 # -------------- Feature & Track - extraction --------------------
@@ -189,15 +254,15 @@ y_val = tracks.loc[small & validation, ('track', 'genre_top')]
 #%%%%
 # ---------------- Hyperparameters & Computation --------------
 l = 12
-n = 4     
+n = 5     
 k = 5
 measures = ['Cosine', 'Euclidean']
-m = measures[0]
+m = measures[1]
 #%%
 start = datetime.datetime.now()
 
 lsh = LSH(x_train, n, l)
-results = lsh.k_neighbors(x_val, y_train, k, m)
+results = lsh.k_neighbors_approx(x_val, y_train, k, m)
 
 runtime = (datetime.datetime.now() - start).total_seconds()  
 print(f'\nRuntime: {runtime:.2f} seconds using {m}-similarity.\n')
@@ -220,7 +285,7 @@ y_train_new = pd.concat([y_train, y_val])
 start = datetime.datetime.now()
 
 lsh = LSH(x_train_new, n, l)
-results = lsh.k_neighbors(x_test, y_train_new)
+results = lsh.k_neighbors_approx(x_test, y_train_new)
 
 runtime = (datetime.datetime.now() - start).total_seconds()  
 print(f'\nRuntime: {runtime:.2f} seconds using {m}-similarity.\n')
