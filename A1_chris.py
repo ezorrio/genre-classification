@@ -297,5 +297,5 @@ for result in results:
     check = y_test.iloc[id]
     u += results[result] == check
 
-print(f"Classification Accuracy of nearest neighbor search using test set: {np.round(100 * u / len(y_val), 2)} %.")
+print(f"Classification Accuracy of nearest neighbor search using test set: {np.round(100 * u / len(y_test), 2)} %.")
 # %%
