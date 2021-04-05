@@ -35,7 +35,7 @@ class HashTable:
         self.train_data = train_data
         self.hash_table = dict()
         self.random_matrix = self.generate_R(self.hash_size, self.train_data.shape[1])
-        self.generate_hash_table()
+        self.generate_hash_table(self.train_data)
 
 
     def generate_R(self, rows, columns):
@@ -55,15 +55,15 @@ class HashTable:
 
 
     def generate_hash(self, input_data):
-        projection = (np.dot(self.random_matrix, self.train_data.T) > 0).astype('int')
+        
+        projection = (np.dot(self.random_matrix, input_data.T) > 0).astype('int')
         hash_value = ''.join((projection).astype('str'))
-
         return hash_value
 
     
-    def generate_hash_table(self):
+    def generate_hash_table(self, input_data):
 
-        projection = (np.dot(self.random_matrix, self.train_data.T) > 0).astype('int')
+        projection = (np.dot(self.random_matrix, input_data.T) > 0).astype('int')
 
         for i in range(projection.shape[1]):
             hash_value = ''.join((projection[:,i]).astype('str'))
@@ -112,7 +112,7 @@ class LSH:
             for hash_table in self.hash_tables:
                 results[track_id].extend(hash_table.getitem(input_data.iloc[i]))
             
-            results[track_id] = set(results[track_id])
+            results[track_id] = list(set(results[track_id]))
 
         return results
 
@@ -214,10 +214,10 @@ for result in results:
 print(f"Classification Accuracy of nearest neighbor search using validation set: {np.round(100 * u / len(y_val), 2)} %.")
 
 
-x_train_new = pd.concat([X_train, X_val])
+X_train_new = pd.concat([X_train, X_val])
 y_train_new = pd.concat([y_train, y_val])
 
-lsh = LSH(x_train_new, n, l)
+lsh = LSH(n, l, X_train_new)
 results = lsh.k_neighbors_approx(X_test, y_train_new)
 
 u = 0
