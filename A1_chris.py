@@ -234,6 +234,8 @@ class LSH:
 
 #%%
 # -------------- Feature & Track - extraction --------------------
+print('Loading the data ....\t')
+
 tracks = pd.read_csv('metadata/tracks.csv', index_col=0, header=[0, 1])
 
 training = tracks['set', 'split'] == 'training'
@@ -251,21 +253,26 @@ y_train = tracks.loc[small & training, ('track', 'genre_top')]
 y_test = tracks.loc[small & testing, ('track', 'genre_top')]
 y_val = tracks.loc[small & validation, ('track', 'genre_top')]
 
+print('Finished!\n')
+
 #%%%%
 # ---------------- Hyperparameters & Computation --------------
 l = 12
 n = 5     
 k = 5
 measures = ['Cosine', 'Euclidean']
-m = measures[1]
+m = measures[0]
+
+print(f"Hyperparameters: l={l}, n={n}, k={k}, measure={m}.\n")
 #%%
+print('Calculating similarity for validation set via LSH: ... ')
 start = datetime.datetime.now()
 
 lsh = LSH(x_train, n, l)
 results = lsh.k_neighbors_approx(x_val, y_train, k, m)
 
 runtime = (datetime.datetime.now() - start).total_seconds()  
-print(f'\nRuntime: {runtime:.2f} seconds using {m}-similarity.\n')
+print(f'Runtime: {runtime:.2f} seconds using {m}-similarity.\n')
 
 # Calculates the classification accuracy for validation set
 u = 0
@@ -274,13 +281,14 @@ for result in results:
     check = y_val.iloc[id]
     u += results[result] == check
 
-print(f"Classification Accuracy of nearest neighbor search using validation set: {np.round(100 * u / len(y_val), 2)} %.")
+print(f"Classification Accuracy of nearest neighbor search using validation set: {np.round(100 * u / len(y_val), 2)} %.\n")
 #%%
 # Combining training and validation to new training set
 x_train_new = pd.concat([x_train, x_val])
 y_train_new = pd.concat([y_train, y_val])
 
 # %%
+print('Calculating similarity for test set via LSH: ...')
 
 start = datetime.datetime.now()
 
@@ -288,7 +296,7 @@ lsh = LSH(x_train_new, n, l)
 results = lsh.k_neighbors_approx(x_test, y_train_new)
 
 runtime = (datetime.datetime.now() - start).total_seconds()  
-print(f'\nRuntime: {runtime:.2f} seconds using {m}-similarity.\n')
+print(f'Runtime: {runtime:.2f} seconds using {m}-similarity.\n')
 
 # Calculates the classification accuracy for test set
 u = 0
@@ -297,5 +305,22 @@ for result in results:
     check = y_test.iloc[id]
     u += results[result] == check
 
-print(f"Classification Accuracy of nearest neighbor search using test set: {np.round(100 * u / len(y_test), 2)} %.")
+print(f"Classification Accuracy of nearest neighbor search using test set: {np.round(100 * u / len(y_test), 2)} %.\n")
+# %%
+# classification Accuracy per genre
+genres = {'Hip-Hop' : 0, 'Pop' : 0, 'Folk' : 0, 'Rock' : 0, 'Experimental' : 0,
+          'International' : 0, 'Electronic' : 0, 'Instrumental' : 0}
+
+for true, result in zip(y_test, results):
+    if true == results[result]:
+        genres[true] += 1
+
+print('Classification Accuracy per genre:')
+
+for genre in genres:
+    print(f'{genre}: {genres[genre]}%')
+
+print('-----------------------------------------')
+print(f'Average score: {np.average([genres[count] for count in genres])}%')
+        
 # %%
