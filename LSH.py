@@ -1,6 +1,5 @@
 # class for performing LHS
 import numpy as np
-import math
 
 
 class RandomHash:
