@@ -56,7 +56,7 @@ class MusicSearch:
             print("Invalid similarity measure.\n")
             return
         
-    def k_neighbors(self, training, feature, measure='Cosine', k=5,):
+    def k_neighbors(self, training, feature, measure='Cosine', k=5):
         # returns list of track_ids of knn
         
         similar_tracks = self.find_similar_tracks(feature)
