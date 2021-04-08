@@ -81,7 +81,7 @@ class LSH:
     """ Class for finding similar tracks and computing k neighbors to find 
         predicted genre. """
     
-    def __init__(self, train, n=5, l=10):
+    def __init__(self, train, n=5, l=12):
         self.n = n # number of hash tables
         self.l = l # hash length
         self.train = train
@@ -89,83 +89,97 @@ class LSH:
         # Builds list containing n hash tables
         self.hash_tables = [HashTable(self.l, self.train) for _ in range(self.n)]
         
-    def find_similar(self, test):
-        """ Loops over every track in the test set and finds tracks of training set 
-            with the same hash value in at least one hash table. """
-
-        results = dict()
-        for index in range(test.shape[0]):
-            track_id = test.iloc[index].name
-            results[track_id] = []
-
-            for hash_table in self.hash_tables:
-                results[track_id].extend(hash_table.query(test.iloc[index]))
-            results[track_id] = list(set(results[track_id])) # duplicates!
-        
-        return results
-
-    def k_neighbors(self, x_test, y_train, k=5, measure = 'Cosine'):
-            """ Uses results of find_similar to obtain the k-most similar tracks for each 
-                track in test set. Returns a dictionary containing the track ids and the 
-                predicted genre for the test set. """
-            
-            similar = self.find_similar(x_test)
-            results = dict()
-            
-            # Finds neighbors either based on cosine- or euclidean similarity measure
-            if measure == 'Cosine':     
-
-                # iterates trough test tracks
-                for count, track_id in enumerate(similar):
-                    index1 = np.where(x_test.index == track_id)[0][0]
-                    vec1 = x_test.iloc[index1] # feature vector
-                    results[track_id] = []
-                    
-                    # iterates through similar training tracks for given validation track_id
-                    for similar_track in similar[track_id]:
-                        index2 = np.where(self.train.index == similar_track)[0][0]
-                        vec2 = self.train.iloc[index2] # feature vector
-                        results[track_id].append([similar_track, cosine_similarity(vec1, vec2)])
-                    results[track_id] = sorted(results[track_id], key=lambda l:l[1], reverse=True)[:k]
+    def find_similar_tracks_for_one_feature(self, feature):
                 
-                    # Genre classification
-                    track_ids = [track_id[0] for track_id in results[track_id]]
-                    indices = [np.where(self.train.index == id)[0][0] for id in track_ids]
-                    genres = [y_train.iloc[index] for index in indices]
-                    
-                    if genres != []:
-                        results[track_id] = most_common(genres)
-                    
-                    if (10*count/len(similar)) % 1 == 0 and (count/len(similar)) != 0:
-                        print(f"{round(100*count/len(similar))} % Done")
-        
-            elif measure == 'Euclidean':
-                
-                # iterates trough test tracks
-                for track_id in similar:
-                    index1 = np.where(x_test.index == track_id)[0][0]
-                    vec1 = x_test.iloc[index1]   
-                    results[track_id] = []
-                    
-                    # iterates through similar training tracks for given validation track_id
-                    for similar_track in similar[track_id]:
-                        index2 = np.where(self.train.index == similar_track)[0][0]
-                        vec2 = self.train.iloc[index2]
-                        results[track_id].append([similar_track, euclidean_similarity(vec1, vec2)])
-                    results[track_id] = sorted(results[track_id], key=lambda l:l[1], reverse=False)[:k]
-            
-                    # Genre classification            
-                    track_ids = [track_id[0] for track_id in results[track_id]]
-                    indices = [np.where(self.train.index == id)[0][0] for id in track_ids]
-                    genres = [y_train.iloc[index] for index in indices]
-                    
-                    if genres != []:
-                        results[track_id] = most_common(genres)
-            
-            else:
-                print("no valid similarity measure!!!")
+        result = set()
+        for hash_table in self.hash_tables:
+            result.update(hash_table.query(feature))
 
-            return results
+        return list(result)
+        
+    def calculate_similarity(self, feature, track_id, measure="Cosine"):
+        
+        index = np.where(self.train.index == track_id)[0][0]
+        training_feature = self.train.iloc[index]
+        
+        if measure == "Cosine":
+            return cosine_similarity(feature, training_feature)
+        
+        elif measure == "Euclidean":
+            return euclidean_similarity(feature, training_feature)
+        
+        else:
+            print("Invalid similarity measure.\n")
+            return
+        
+    def k_neighbors(self, similar_tracks, feature, measure='Cosine', k=5,):
+        
+        k_neighbors = []
+        for track_id in np.random.choice(similar_tracks, 800, replace=True):
+            k_neighbors.append((track_id, self.calculate_similarity(feature, track_id, measure)))
+        
+        if measure == "Cosine":
+            k_neighbors = sorted(k_neighbors, key=lambda l:l[1], reverse=True)[:k]
+        
+        elif measure == "Euclidean":
+            k_neighbors = sorted(k_neighbors, key=lambda l:l[1], reverse=False)[:k]
+        
+        k_neighbors = [neighbor[0] for neighbor in k_neighbors]
+
+        return k_neighbors
+
+    def k_neighbors_for_one_track(self, feature, k=5, measure="Cosine"):
+        
+        similar_tracks = self.find_similar_tracks_for_one_feature(feature)
+        k_neighbors = self.k_neighbors(similar_tracks, feature, measure)
+        
+        return k_neighbors
+
+    def predict_genre(self, feature):
+        
+        k_neighbors = self.k_neighbors_for_one_track(feature)
+        indices = [np.where(self.train.index == track_id)[0][0] for track_id in k_neighbors]
+        genres = [y_train.iloc[index] for index in indices]
+    
+        if genres != []:
+            return most_common(genres)
+        else:
+            print("No similar tracks found.")      
+            return
+    
+    def classification_score(self, features):
+
+        genres = {'Hip-Hop' : 0, 'Pop' : 0, 'Folk' : 0, 'Rock' : 0, 'Experimental' : 0,
+                'International' : 0, 'Electronic' : 0, 'Instrumental' : 0}
+        
+        for track_id, feature in features.iterrows():
+            
+            predicted_genre = self.predict_genre(feature)
+            id = np.where(y_val.index == track_id)[0][0]
+            true_genre = y_val.iloc[id]
+
+            if true_genre == predicted_genre:
+                genres[true_genre] += 1
+            
+        return genres
+            
+    def genre_classification(self, features):
+             
+        genres = self.classification_score(features)
+
+        print('Classification Accuracy per genre:\n')
+
+        for genre in genres:    
+            print(f'{genre}: {genres[genre]}%')        
+
+        print('-----------------------------------------')
+        print(f'Overall classification accuracy: {np.average([genres[count] for count in genres])}%')
+
+        
+        #classification_score = np.round(100 * self.classification_score(features) / len(y_test), 2)
+        
+        #print(f"Classification Accuracy of nearest neighbor search using test set: {classification_score} %.\n")            
+    
         
     def k_neighbors_approx(self, x_test, y_train, k=5, measure = 'Cosine'):
         """ Uses subset of results of find_similar to obtain the k-most similar tracks for each 
@@ -323,4 +337,11 @@ for genre in genres:
 print('-----------------------------------------')
 print(f'Average score: {np.average([genres[count] for count in genres])}%')
         
+# %%
+
+lsh=LSH(x_train)
+#%%
+a = lsh.find_similar_tracks_for_all_features(x_test)
+for i in a:
+    print(i[0])
 # %%
