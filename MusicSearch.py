@@ -3,8 +3,9 @@ from FMA import *
 from LSH import *
 from tqdm import tqdm
 
+
 class MusicSearch:
-    def __init__(self, data_path="metadata/", n=5, l=12, subset='small', feature_fields=None, measure='Cosine', k='5'):
+    def __init__(self, data_path, n, l, subset='small', feature_fields=None, measure='Cosine', k=5, magic_number=800):
         if feature_fields is None:
             feature_fields = ['mfcc']
         self.data = FMA(data_path, feature_fields=feature_fields, subset=subset)
@@ -14,6 +15,7 @@ class MusicSearch:
         self._test_set = None
         self._measure = measure
         self._k = k
+        self._magic_number = magic_number
 
     def train(self):
         self._training_set = self.data.get_training_data()
@@ -60,7 +62,11 @@ class MusicSearch:
         similar_tracks = self.find_similar_tracks(feature)
 
         k_neighbors = []
-        for track_id in np.random.choice(similar_tracks, 800, replace=True):  # random subset of similar tracks
+        if not similar_tracks:
+            return k_neighbors
+
+        for track_id in np.random.choice(similar_tracks, self._magic_number,
+                                         replace=True):  # random subset of similar tracks
             k_neighbors.append((track_id, self.calculate_similarity(feature, track_id)))
 
         if self._measure == "Cosine":  # ideally 1 --> sorted descending
