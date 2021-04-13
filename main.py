@@ -11,10 +11,15 @@ if __name__ == '__main__':
     
     # Phase-1: Training data vs. validation set 
     training_data = search.data.get_training_data()
+    print('training data done')
     validation_data = search.data.get_validation_data() 
+    print('validation data done')
     
+    print('begin training')
     search.train(training_data)
+    print('training done')
     search.test(validation_data)
+    print('validation done')
 
     print('-----------------------------------------')
     print('Genre classification for training and validation data:\n')

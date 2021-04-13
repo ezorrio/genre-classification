@@ -34,11 +34,13 @@ class LSH:
         self.hashes = [RandomHash(data_size=data_size, hash_length=hash_length) for _ in range(self.hashes_count)]
 
     def hash_data(self, data):
-        #print(data.shape, 'lsh data shape')
+        print(type(data), 'lsh data type')
+        print(data.shape, 'lsh data shape')
         for random_hash in self.hashes:
-            for idx, features in data.iterrows(): # modified to iterrows, has a crash
+            for features in data.itertuples(): # modified to iterrows, has a crash
                 #print(features, 'lsh hash_data features')
-                random_hash.add(features, idx)
+                #print(features[1:], 'lsh features shape')
+                random_hash.add(features[1:], features.index)
 
     def get(self, features):
         return [random_hash.get(features) for random_hash in self.hashes]
