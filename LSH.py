@@ -1,13 +1,12 @@
 # class for performing LHS
 import numpy as np
 
-
 class RandomHash:
     @staticmethod
     def random_matrix(rows, cols):
         random_matrix = np.random.rand(rows, cols)
-        random_matrix[random_matrix < 1 / 6] = -1
-        random_matrix[random_matrix > 5 / 6] = 1
+        random_matrix[random_matrix < 1 / 6] = -np.sqrt(3)
+        random_matrix[random_matrix > 5 / 6] = np.sqrt(3)
         random_matrix[(1 / 6 < random_matrix) & (random_matrix < 5 / 6)] = 0
         return random_matrix
 

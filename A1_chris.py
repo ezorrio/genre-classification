@@ -89,7 +89,7 @@ class LSH:
         # Builds list containing n hash tables
         self.hash_tables = [HashTable(self.l, self.train) for _ in range(self.n)]
         
-    def find_similar_tracks_for_one_feature(self, feature):
+    def find_similar_tracks(self, feature):
                 
         result = set()
         for hash_table in self.hash_tables:
@@ -112,32 +112,28 @@ class LSH:
             print("Invalid similarity measure.\n")
             return
         
-    def k_neighbors(self, similar_tracks, feature, measure='Cosine', k=5,):
-        
+    def k_neighbors(self, feature, measure='Cosine', k=5):
+        # returns list of track_ids of knn of one track
+
+        similar_tracks = self.find_similar_tracks(feature)
+
         k_neighbors = []
-        for track_id in np.random.choice(similar_tracks, 800, replace=True):
+        for track_id in np.random.choice(similar_tracks, 800, replace=True):  # random subset of similar tracks
             k_neighbors.append((track_id, self.calculate_similarity(feature, track_id, measure)))
-        
-        if measure == "Cosine":
-            k_neighbors = sorted(k_neighbors, key=lambda l:l[1], reverse=True)[:k]
-        
-        elif measure == "Euclidean":
-            k_neighbors = sorted(k_neighbors, key=lambda l:l[1], reverse=False)[:k]
-        
-        k_neighbors = [neighbor[0] for neighbor in k_neighbors]
 
-        return k_neighbors
+        if measure == "Cosine":  # ideally 1 --> sorted descending
+            k_neighbors = sorted(k_neighbors, key=lambda l: l[1], reverse=True)[:k]
 
-    def k_neighbors_for_one_track(self, feature, k=5, measure="Cosine"):
-        
-        similar_tracks = self.find_similar_tracks_for_one_feature(feature)
-        k_neighbors = self.k_neighbors(similar_tracks, feature, measure)
-        
+        elif measure == "Euclidean":  # ideally 0 --> sorted ascending
+            k_neighbors = sorted(k_neighbors, key=lambda l: l[1], reverse=False)[:k]
+
+        k_neighbors = [neighbor[0] for neighbor in k_neighbors]  # only return the track_ids
+
         return k_neighbors
 
     def predict_genre(self, feature):
         
-        k_neighbors = self.k_neighbors_for_one_track(feature)
+        k_neighbors = self.k_neighbors(feature)
         indices = [np.where(self.train.index == track_id)[0][0] for track_id in k_neighbors]
         genres = [y_train.iloc[index] for index in indices]
     
@@ -174,13 +170,7 @@ class LSH:
 
         print('-----------------------------------------')
         print(f'Overall classification accuracy: {np.average([genres[count] for count in genres])}%')
-
-        
-        #classification_score = np.round(100 * self.classification_score(features) / len(y_test), 2)
-        
-        #print(f"Classification Accuracy of nearest neighbor search using test set: {classification_score} %.\n")            
-    
-        
+   
     def k_neighbors_approx(self, x_test, y_train, k=5, measure = 'Cosine'):
         """ Uses subset of results of find_similar to obtain the k-most similar tracks for each 
             track in test set. Returns a dictionary containing the track ids and the 
