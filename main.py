@@ -7,9 +7,9 @@ number_of_hashtables = 5
 hash_length = 12
 k_nearest_neighbors = 5
 #%%
-search = MusicSearch("metadata/", number_of_hashtables, hash_length)
-
 """ Phase-1: Training data vs. validation set """
+
+search = MusicSearch("metadata/", number_of_hashtables, hash_length)
 
 print('begin training')
 search.train()
@@ -22,7 +22,6 @@ search.test_with_validation()
 
 #%%
 """ Phase-2: Training data & validation set vs. test data """
-""" NEW INSTANCE OF MusicSearch NEEDED? """
 
 search = MusicSearch("metadata/", number_of_hashtables, hash_length)
 

@@ -4,7 +4,7 @@ from LSH import *
 from tqdm import tqdm
 
 class MusicSearch:
-    def __init__(self, data_path, n, l, subset='small', feature_fields=None):
+    def __init__(self, data_path="metadata/", n=5, l=12, subset='small', feature_fields=None):
         if feature_fields is None:
             feature_fields = ['mfcc']
         self.data = FMA(data_path, feature_fields=feature_fields, subset=subset)
@@ -28,13 +28,12 @@ class MusicSearch:
             self.lsh.hash_data(item)
 
     def test_with_validation(self):
-        self._testing_set = self.data.get_validation_data()
-        self.print_classification_results(self._testing_set)
+        self._test_set = self.data.get_validation_data()
+        self.print_classification_results(self._test_set)
         
     def find_similar_tracks(self, feature):
 
         result = set()
-        # print(type(feature), 'find similar feature')
         for hash_table in self.lsh.hashes:
             result.update(hash_table.get(feature))
 
