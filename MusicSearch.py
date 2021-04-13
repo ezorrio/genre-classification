@@ -4,7 +4,7 @@ from LSH import *
 from tqdm import tqdm
 
 class MusicSearch:
-    def __init__(self, data_path, n, l, subset='small', feature_fields=None):
+    def __init__(self, data_path, n, l, subset='small', feature_fields=None, measure='Cosine'):
         if feature_fields is None:
             feature_fields = ['mfcc']
         self.data = FMA(data_path, feature_fields=feature_fields, subset=subset)
@@ -12,6 +12,7 @@ class MusicSearch:
         # holds a reference to a set from FMA. For internal usage only
         self._training_set = None
         self._test_set = None
+        self._measure = measure
 
     def train(self):
         self._training_set = self.data.get_training_data()
@@ -40,33 +41,33 @@ class MusicSearch:
 
         return list(result)
 
-    def calculate_similarity(self, feature, track_id, measure="Cosine"):
+    def calculate_similarity(self, feature, track_id):
         index = np.where(self._training_set[0].index == track_id)[0][0]
         training_feature = self._training_set[0].iloc[index]
 
-        if measure == "Cosine":
+        if self._measure == "Cosine":
             return self.cosine_similarity(feature, training_feature)
 
-        elif measure == "Euclidean":
+        elif self._measure == "Euclidean":
             return self.euclidean_similarity(feature, training_feature)
 
         else:
             print("Invalid similarity measure.\n")
             return
 
-    def k_neighbors(self, feature, measure='Cosine', k=5):
+    def k_neighbors(self, feature, k=5):
         # returns list of track_ids of knn of one track
 
         similar_tracks = self.find_similar_tracks(feature)
 
         k_neighbors = []
         for track_id in np.random.choice(similar_tracks, 800, replace=True):  # random subset of similar tracks
-            k_neighbors.append((track_id, self.calculate_similarity(feature, track_id, measure)))
+            k_neighbors.append((track_id, self.calculate_similarity(feature, track_id)))
 
-        if measure == "Cosine":  # ideally 1 --> sorted descending
+        if self._measure == "Cosine":  # ideally 1 --> sorted descending
             k_neighbors = sorted(k_neighbors, key=lambda l: l[1], reverse=True)[:k]
 
-        elif measure == "Euclidean":  # ideally 0 --> sorted ascending
+        elif self._measure == "Euclidean":  # ideally 0 --> sorted ascending
             k_neighbors = sorted(k_neighbors, key=lambda l: l[1], reverse=False)[:k]
 
         k_neighbors = [neighbor[0] for neighbor in k_neighbors]  # only return the track_ids
