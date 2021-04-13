@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 
 class MusicSearch:
-    def __init__(self, data_path, n, l, subset='small', feature_fields=None, measure='Cosine'):
+    def __init__(self, data_path, n, l, subset='small', feature_fields=None, measure='Cosine', k='5'):
         if feature_fields is None:
             feature_fields = ['mfcc']
         self.data = FMA(data_path, feature_fields=feature_fields, subset=subset)
@@ -14,6 +14,7 @@ class MusicSearch:
         self._training_set = None
         self._test_set = None
         self._measure = measure
+        self._k = k
 
     def train(self):
         self._training_set = self.data.get_training_data()
@@ -54,7 +55,7 @@ class MusicSearch:
             print("Invalid similarity measure.\n")
             return
 
-    def k_neighbors(self, feature, k=5):
+    def k_neighbors(self, feature):
         # returns list of track_ids of knn of one track
 
         similar_tracks = self.find_similar_tracks(feature)
@@ -64,10 +65,10 @@ class MusicSearch:
             k_neighbors.append((track_id, self.calculate_similarity(feature, track_id)))
 
         if self._measure == "Cosine":  # ideally 1 --> sorted descending
-            k_neighbors = sorted(k_neighbors, key=lambda l: l[1], reverse=True)[:k]
+            k_neighbors = sorted(k_neighbors, key=lambda l: l[1], reverse=True)[:self._k]
 
         elif self._measure == "Euclidean":  # ideally 0 --> sorted ascending
-            k_neighbors = sorted(k_neighbors, key=lambda l: l[1], reverse=False)[:k]
+            k_neighbors = sorted(k_neighbors, key=lambda l: l[1], reverse=False)[:self._k]
 
         k_neighbors = [neighbor[0] for neighbor in k_neighbors]  # only return the track_ids
 

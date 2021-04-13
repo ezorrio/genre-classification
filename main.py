@@ -9,7 +9,7 @@ measure = 'Euclidean'
 
 """ Phase-1: Training data vs. validation set """
 
-search = MusicSearch("metadata/", number_of_hashtables, hash_length, measure=measure)
+search = MusicSearch("metadata/", number_of_hashtables, hash_length, measure=measure, k=k_nearest_neighbors)
 
 print('begin training')
 search.train()
