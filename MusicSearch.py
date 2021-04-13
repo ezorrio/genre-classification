@@ -1,7 +1,7 @@
+#%%
 from FMA import *
 from LSH import *
 from tqdm import tqdm
-
 
 class MusicSearch:
     def __init__(self, data_path, n, l):
@@ -9,6 +9,7 @@ class MusicSearch:
         self.lsh = LSH(self.data.features.shape[1], n, l)
         # holds a reference to a set from FMA. For internal usage only
         self._training_set = None
+        self._test_set = None
 
     def train(self):
         self._training_set = self.data.get_training_data()
@@ -16,13 +17,18 @@ class MusicSearch:
             self.lsh.hash_data(item)
 
     def test(self):
-        self.print_classification_results(self.data.get_test_data())
+        self._test_set = self.data.get_test_data()
+        self.print_classification_results(self._test_set)
 
     def train_with_validation(self):
         self._training_set = self.data.get_training_with_validation_data()
         for item in self._training_set:
             self.lsh.hash_data(item)
 
+    def test_with_validation(self):
+        self._testing_set = self.data.get_validation_data()
+        self.print_classification_results(self._testing_set)
+        
     def find_similar_tracks(self, feature):
 
         result = set()
@@ -115,3 +121,5 @@ class MusicSearch:
     @staticmethod
     def most_common(collection):
         return max(set(collection), key=collection.count)
+
+# %%
