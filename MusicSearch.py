@@ -3,9 +3,8 @@ from FMA import *
 from LSH import *
 from tqdm import tqdm
 
-
 class MusicSearch:
-    def __init__(self, data_path, n, l, subset='small', feature_fields=None, measure='Cosine', k='5'):
+    def __init__(self, data_path="metadata/", n=5, l=12, subset='small', feature_fields=None, measure='Cosine', k='5'):
         if feature_fields is None:
             feature_fields = ['mfcc']
         self.data = FMA(data_path, feature_fields=feature_fields, subset=subset)
