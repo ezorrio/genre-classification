@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 
+
 class RandomHash:
     @staticmethod
     def random_matrix(rows, cols):
@@ -16,14 +17,12 @@ class RandomHash:
         self.buckets = dict()
 
     def hash(self, data):
-
         if type(data) is tuple:
             print(type(data), 'lsh hash data tuple')
             print(type(data[0]), 'data[0] type')
             print(type(data[1]), 'data[1] type')
 
             return np.array2string((np.dot(self.random_matrix.T, data[0].T) > 0).astype('int'))
-            
 
         return np.array2string((np.dot(self.random_matrix.T, data.T) > 0).astype('int'))
 

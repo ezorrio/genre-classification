@@ -39,7 +39,7 @@ class FMA:
         """
         Returns a tuple (features, labels) of validation data
         """
-        if self.validation:
+        if self.validation is None:
             self.validation = self.__get_split("validation")
         return self.validation
 
@@ -48,11 +48,8 @@ class FMA:
         Returns a tuple (features, labels) of training and validation data
         """
         if self.trainingWithValidation is None:
-            training = self.get_training_data()
-            validation = self.get_validation_data()
-
-            features = pd.concat([training[0], validation[0]])
-            labels = pd.concat([training[1], validation[1]])
+            features = pd.concat([self.get_training_data()[0], self.get_validation_data()[0]])
+            labels = pd.concat([self.get_training_data()[1], self.get_validation_data()[1]])
 
             self.trainingWithValidation = features, labels
 
