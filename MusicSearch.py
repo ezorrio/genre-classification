@@ -4,8 +4,10 @@ from tqdm import tqdm
 
 
 class MusicSearch:
-    def __init__(self, data_path, n, l):
-        self.data = FMA(data_path)
+    def __init__(self, data_path, n, l, subset='small', feature_fields=None):
+        if feature_fields is None:
+            feature_fields = ['mfcc']
+        self.data = FMA(data_path, feature_fields=feature_fields, subset=subset)
         self.lsh = LSH(self.data.features.shape[1], n, l)
         # holds a reference to a set from FMA. For internal usage only
         self._training_set = None
@@ -26,7 +28,7 @@ class MusicSearch:
     def find_similar_tracks(self, feature):
 
         result = set()
-        #print(type(feature), 'find similar feature')
+        # print(type(feature), 'find similar feature')
         for hash_table in self.lsh.hashes:
             result.update(hash_table.get(feature))
 

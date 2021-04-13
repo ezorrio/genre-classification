@@ -3,11 +3,13 @@ import pandas as pd
 
 
 class FMA:
-    def __init__(self, path):
+    def __init__(self, path, subset='small', feature_fields=None):
         tracks = pd.read_csv(f"{path}tracks.csv", index_col=0, header=[0, 1])
         features = pd.read_csv(f"{path}features.csv", index_col=0, header=[0, 1, 2])
-        self.tracks = tracks[tracks['set']['subset'] == 'small']
-        self.features = features.loc[self.tracks.index, 'mfcc'] # already limiting to mfcc, so that random matrix gets initialised in correct dim
+        if feature_fields is None:
+            feature_fields = ['mfcc']
+        self.tracks = tracks[tracks['set']['subset'] == subset]
+        self.features = features.loc[self.tracks.index, feature_fields]  # already limiting to mfcc, so that random matrix gets initialised in correct dim
         self.training = None
         self.test = None
         self.validation = None
