@@ -62,6 +62,9 @@ class MusicSearch:
         similar_tracks = self.find_similar_tracks(feature)
 
         k_neighbors = []
+        if not similar_tracks:
+            return k_neighbors
+
         for track_id in np.random.choice(similar_tracks, self._magic_number,
                                          replace=True):  # random subset of similar tracks
             k_neighbors.append((track_id, self.calculate_similarity(feature, track_id)))
