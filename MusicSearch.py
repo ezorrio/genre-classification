@@ -29,13 +29,12 @@ class MusicSearch:
             self.lsh.hash_data(item)
 
     def test_with_validation(self):
-        self._testing_set = self.data.get_validation_data()
-        self.print_classification_results(self._testing_set)
+        self._test_set = self.data.get_validation_data()
+        self.print_classification_results(self._test_set)
         
     def find_similar_tracks(self, feature):
 
         result = set()
-        # print(type(feature), 'find similar feature')
         for hash_table in self.lsh.hashes:
             result.update(hash_table.get(feature))
 
