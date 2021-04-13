@@ -75,7 +75,6 @@ class MusicSearch:
             return
 
     def classification_score(self, test):
-
         scores_per_genres = {'Hip-Hop': 0, 'Pop': 0, 'Folk': 0, 'Rock': 0, 'Experimental': 0,
                              'International': 0, 'Electronic': 0, 'Instrumental': 0}
 
@@ -90,7 +89,7 @@ class MusicSearch:
         return scores_per_genres
 
     def print_classification_results(self, test):
-        scores_per_genres = self.classification_score_per_genre(test)
+        scores_per_genres = self.classification_score(test)
 
         print('Classification Accuracy per genre:\n')
 
