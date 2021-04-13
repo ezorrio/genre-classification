@@ -2,25 +2,24 @@ from FMA import *
 from LSH import *
 from tqdm import tqdm
 
+
 class MusicSearch:
     def __init__(self, data_path, n, l):
         self.data = FMA(data_path)
         self.lsh = LSH(self.data.features.shape[1], n, l)
-        self.training_data = []
-        self.testing_data = []
 
-    def train(self, training_data):
-        self.training_data = training_data
-        
-        for item in training_data:
+    def train(self):
+        for item in self.data.get_training_data():
             self.lsh.hash_data(item)
 
-    def test(self, testing_data):
-        self.testing_data = testing_data
-        self.print_classification_results(testing_data)
+    def test(self):
+        self.print_classification_results(self.data.get_test_data())
+
+    def train_with_validation(self):
+        for item in self.data.get_training_with_validation_data():
+            self.lsh.hash_data(item)
 
     def find_similar_tracks(self, feature):
-
         result = set()
         #print(type(feature), 'find similar feature')
         for hash_table in self.lsh.hashes:
@@ -29,9 +28,8 @@ class MusicSearch:
         return list(result)
 
     def calculate_similarity(self, feature, track_id, measure="Cosine"):
-
-        index = np.where(self.training_data[0].index == track_id)[0][0]
-        training_feature = self.training_data[0].iloc[index]
+        index = np.where(self.data.get_training_data()[0].index == track_id)[0][0]
+        training_feature = self.data.get_training_data()[0].iloc[index]
 
         if measure == "Cosine":
             return self.cosine_similarity(feature, training_feature)
@@ -66,8 +64,8 @@ class MusicSearch:
         # predicts genre for given feature vector
 
         k_neighbors = self.k_neighbors(feature)
-        indices = [np.where(self.training_data[0].index == track_id)[0][0] for track_id in k_neighbors]
-        genres_of_k_neighbors = [self.training_data[1].iloc[index] for index in indices]
+        indices = [np.where(self.data.get_training_data()[0].index == track_id)[0][0] for track_id in k_neighbors]
+        genres_of_k_neighbors = [self.data.get_training_data()[1].iloc[index] for index in indices]
 
         if genres_of_k_neighbors:
             return self.most_common(genres_of_k_neighbors)
