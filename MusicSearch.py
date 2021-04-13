@@ -1,7 +1,8 @@
-#%%
+# %%
 from FMA import *
 from LSH import *
 from tqdm import tqdm
+
 
 class MusicSearch:
     def __init__(self, data_path, n, l, subset='small', feature_fields=None, measure='Cosine'):
@@ -31,9 +32,8 @@ class MusicSearch:
     def test_with_validation(self):
         self._test_set = self.data.get_validation_data()
         self.print_classification_results(self._test_set)
-        
-    def find_similar_tracks(self, feature):
 
+    def find_similar_tracks(self, feature):
         result = set()
         for hash_table in self.lsh.hashes:
             result.update(hash_table.get(feature))
@@ -75,7 +75,6 @@ class MusicSearch:
 
     def predict_genre(self, feature):
         # predicts genre for given feature vector
-
         k_neighbors = self.k_neighbors(feature)
         indices = [np.where(self._training_set[0].index == track_id)[0][0] for track_id in k_neighbors]
         genres_of_k_neighbors = [self._training_set[1].iloc[index] for index in indices]
@@ -87,8 +86,7 @@ class MusicSearch:
             return
 
     def classification_score(self, test):
-        scores_per_genres = {'Hip-Hop': 0, 'Pop': 0, 'Folk': 0, 'Rock': 0, 'Experimental': 0,
-                             'International': 0, 'Electronic': 0, 'Instrumental': 0}
+        scores_per_genres = {}
 
         for track_id, feature in tqdm(test[0].iterrows(), total=test[0].shape[0]):
             predicted_genre = self.predict_genre(feature)
@@ -96,7 +94,10 @@ class MusicSearch:
             true_genre = test[1].iloc[id]
 
             if true_genre == predicted_genre:
-                scores_per_genres[true_genre] += 1
+                if true_genre not in scores_per_genres:
+                    scores_per_genres[true_genre] = 0
+                else:
+                    scores_per_genres[true_genre] += 1
 
         return scores_per_genres
 
