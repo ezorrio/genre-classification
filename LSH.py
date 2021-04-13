@@ -15,7 +15,7 @@ class RandomHash:
         self.buckets = dict()
 
     def hash(self, data):
-        return np.array2string((np.dot(self.random_matrix, data.T) > 0).astype('int'))
+        return np.array2string((np.dot(self.random_matrix.T, data) > 0).astype('int'))
 
     def add(self, data, label):
         hash_value = self.hash(data)
@@ -34,10 +34,11 @@ class LSH:
         self.hashes = [RandomHash(data_size=data_size, hash_length=hash_length) for _ in range(self.hashes_count)]
 
     def hash_data(self, data):
+        #print(data.shape, 'lsh data shape')
         for random_hash in self.hashes:
-            for features, label in data:
-                print(features)
-                random_hash.add(features, label)
+            for idx, features in data.iterrows(): # modified to iterrows, has a crash
+                #print(features, 'lsh hash_data features')
+                random_hash.add(features, idx)
 
     def get(self, features):
         return [random_hash.get(features) for random_hash in self.hashes]

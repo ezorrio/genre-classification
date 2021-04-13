@@ -1,4 +1,3 @@
-# %%
 from FMA import *
 from LSH import *
 
@@ -13,6 +12,7 @@ class MusicSearch:
         self.training_data = training_data
         
         for item in training_data:
+            #print(item)
             self.lsh.hash_data(item)
 
     def test(self, testing_data):
@@ -115,5 +115,3 @@ class MusicSearch:
     @staticmethod
     def most_common(collection):
         return max(set(collection), key=collection.count)
-
-# %%

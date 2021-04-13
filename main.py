@@ -1,4 +1,4 @@
-from MusicSearch import *
+from MusicSearch_new import *
 
 if __name__ == '__main__':
 
@@ -34,4 +34,3 @@ if __name__ == '__main__':
     print('-----------------------------------------')
     print('Genre classification for training and validation data combined'
           ' vs. test data\n')
-    
