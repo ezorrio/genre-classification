@@ -1,6 +1,6 @@
 from FMA import *
 from LSH import *
-
+from tqdm import tqdm
 
 class MusicSearch:
     def __init__(self, data_path, n, l):
@@ -22,6 +22,7 @@ class MusicSearch:
     def find_similar_tracks(self, feature):
 
         result = set()
+        #print(type(feature), 'find similar feature')
         for hash_table in self.lsh.hashes:
             result.update(hash_table.get(feature))
 
@@ -64,7 +65,7 @@ class MusicSearch:
     def predict_genre(self, feature):
         # predicts genre for given feature vector
 
-        k_neighbors = self.k_neighbors(self.training_data, feature)
+        k_neighbors = self.k_neighbors(feature)
         indices = [np.where(self.training_data[0].index == track_id)[0][0] for track_id in k_neighbors]
         genres_of_k_neighbors = [self.training_data[1].iloc[index] for index in indices]
 
@@ -78,7 +79,7 @@ class MusicSearch:
         scores_per_genres = {'Hip-Hop': 0, 'Pop': 0, 'Folk': 0, 'Rock': 0, 'Experimental': 0,
                              'International': 0, 'Electronic': 0, 'Instrumental': 0}
 
-        for track_id, feature in test[0].iterrows():
+        for track_id, feature in tqdm(test[0].iterrows(), total=test[0].shape[0]):
             predicted_genre = self.predict_genre(feature)
             id = np.where(test[0].index == track_id)[0][0]
             true_genre = test[1].iloc[id]
