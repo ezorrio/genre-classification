@@ -5,11 +5,15 @@ import datetime
 number_of_hashtables = 5
 hash_length = 12
 k_nearest_neighbors = 5
-measure = 'Euclidean'
+subset = 'small'
+feature_fields = 'mfcc'
+measure = 'Cosine' # or 'Euclidean'
+magic_number = 800
+
 
 """ Phase-1: Training data vs. validation set """
 
-search = MusicSearch("metadata/", number_of_hashtables, hash_length, measure=measure, k=k_nearest_neighbors)
+search = MusicSearch("metadata/", number_of_hashtables, hash_length)
 
 print('begin training')
 search.train()
