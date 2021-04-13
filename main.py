@@ -1,4 +1,4 @@
-from MusicSearch_new import *
+from MusicSearch import *
 import datetime
 
 if __name__ == '__main__':

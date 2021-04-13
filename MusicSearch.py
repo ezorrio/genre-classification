@@ -1,31 +1,23 @@
-# %%
 from FMA import *
 from LSH import *
 
-class MusicSearch:
-    def __init__(self, data_path):
-        self.data = FMA(data_path)
-        self.lsh = LSH(self.data.features.shape[1])
 
-    def train(self):
-        for item in self.data.get_training_data():
+class MusicSearch:
+    def __init__(self, data_path, n, l):
+        self.data = FMA(data_path)
+        self.lsh = LSH(self.data.features.shape[1], n, l)
+        self.training_data = []
+        self.testing_data = []
+
+    def train(self, training_data):
+        self.training_data = training_data
+        
+        for item in training_data:
             self.lsh.hash_data(item)
 
-    """
-    Takes test data subset, compares with trained data and outputs accuracy and other metrics    
-    """
-
-    def test(self):
-
-        training = self.data.get_training_data()
-        test = self.data.get_test_data()
-        validation = self.data.get_validation_data()
-
-        self.print_classification_results(training, validation)
-
-        return
-
-    """ Added by Chris on 09.04 """
+    def test(self, testing_data):
+        self.testing_data = testing_data
+        self.print_classification_results(testing_data)
 
     def find_similar_tracks(self, feature):
 
@@ -35,10 +27,10 @@ class MusicSearch:
 
         return list(result)
 
-    def calculate_similarity(self, training, feature, track_id, measure="Cosine"):
+    def calculate_similarity(self, feature, track_id, measure="Cosine"):
 
-        index = np.where(training[0].index == track_id)[0][0]
-        training_feature = training[0].iloc[index]
+        index = np.where(self.training_data[0].index == track_id)[0][0]
+        training_feature = self.training_data[0].iloc[index]
 
         if measure == "Cosine":
             return self.cosine_similarity(feature, training_feature)
@@ -50,14 +42,14 @@ class MusicSearch:
             print("Invalid similarity measure.\n")
             return
 
-    def k_neighbors(self, training, feature, measure='Cosine', k=5):
-        # returns list of track_ids of knn
+    def k_neighbors(self, feature, measure='Cosine', k=5):
+        # returns list of track_ids of knn of one track
 
         similar_tracks = self.find_similar_tracks(feature)
 
         k_neighbors = []
         for track_id in np.random.choice(similar_tracks, 800, replace=True):  # random subset of similar tracks
-            k_neighbors.append((track_id, self.calculate_similarity(training, feature, track_id, measure)))
+            k_neighbors.append((track_id, self.calculate_similarity(feature, track_id, measure)))
 
         if measure == "Cosine":  # ideally 1 --> sorted descending
             k_neighbors = sorted(k_neighbors, key=lambda l: l[1], reverse=True)[:k]
@@ -69,12 +61,12 @@ class MusicSearch:
 
         return k_neighbors
 
-    def predict_genre(self, training, feature):
+    def predict_genre(self, feature):
         # predicts genre for given feature vector
 
-        k_neighbors = self.k_neighbors(training, feature)
-        indices = [np.where(training[0].index == track_id)[0][0] for track_id in k_neighbors]
-        genres_of_k_neighbors = [training[1].iloc[index] for index in indices]
+        k_neighbors = self.k_neighbors(self.training_data, feature)
+        indices = [np.where(self.training_data[0].index == track_id)[0][0] for track_id in k_neighbors]
+        genres_of_k_neighbors = [self.training_data[1].iloc[index] for index in indices]
 
         if genres_of_k_neighbors:
             return self.most_common(genres_of_k_neighbors)
@@ -82,14 +74,13 @@ class MusicSearch:
             print("No similar tracks found.")
             return
 
-    def classification_score_per_genre(self, training, test):
+    def classification_score(self, test):
 
         scores_per_genres = {'Hip-Hop': 0, 'Pop': 0, 'Folk': 0, 'Rock': 0, 'Experimental': 0,
                              'International': 0, 'Electronic': 0, 'Instrumental': 0}
 
         for track_id, feature in test[0].iterrows():
-
-            predicted_genre = self.predict_genre(training, feature)
+            predicted_genre = self.predict_genre(feature)
             id = np.where(test[0].index == track_id)[0][0]
             true_genre = test[1].iloc[id]
 
@@ -98,9 +89,8 @@ class MusicSearch:
 
         return scores_per_genres
 
-    def print_classification_results(self, training, test):
-
-        scores_per_genres = self.classification_score_per_genre(training, test)
+    def print_classification_results(self, test):
+        scores_per_genres = self.classification_score_per_genre(test)
 
         print('Classification Accuracy per genre:\n')
 
@@ -122,5 +112,3 @@ class MusicSearch:
     @staticmethod
     def most_common(collection):
         return max(set(collection), key=collection.count)
-
-# %%
