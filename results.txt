@@ -1,0 +1,45 @@
+
+Hyperparameters: 3 8 small ['mfcc'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 56%
+Folk: 50%
+International: 49%
+Hip-Hop: 34%
+Electronic: 34%
+Pop: 12%
+Experimental: 12%
+Instrumental: 23%
+-----------------------------------------
+Overall classification accuracy: 33.75%
+
+Hyperparameters: 3 8 small ['mfcc'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 58%
+Folk: 47%
+International: 49%
+Hip-Hop: 38%
+Electronic: 38%
+Pop: 10%
+Experimental: 13%
+Instrumental: 20%
+-----------------------------------------
+Overall classification accuracy: 34.125%
+
+Hyperparameters: 3 8 small ['mfcc'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
