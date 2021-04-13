@@ -1,5 +1,6 @@
 # class for performing LHS
 import numpy as np
+import pandas as pd
 
 class RandomHash:
     @staticmethod
@@ -36,11 +37,15 @@ class LSH:
     def hash_data(self, data):
         print(type(data), 'lsh data type')
         print(data.shape, 'lsh data shape')
-        for random_hash in self.hashes:
-            for features in data.itertuples(): # modified to iterrows, has a crash
-                #print(features, 'lsh hash_data features')
-                #print(features[1:], 'lsh features shape')
-                random_hash.add(features[1:], features.index)
+
+        if isinstance(data, pd.DataFrame):
+            #data = data.to_frame()
+
+            for random_hash in self.hashes:
+                for features in data.itertuples(): # modified to iterrows, has a crash
+                    #print(features, 'lsh hash_data features')
+                    #print(features[1:], 'lsh features shape')
+                    random_hash.add(features[1:], features.index)
 
     def get(self, features):
         return [random_hash.get(features) for random_hash in self.hashes]
