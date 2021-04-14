@@ -4281,3 +4281,2059 @@ Pop: 4%
 -----------------------------------------
 Overall classification accuracy: 23.25%
 
+
+Hyperparameters: 11 8 small ['mfcc'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 49%
+Folk: 63%
+International: 24%
+Hip-Hop: 54%
+Pop: 17%
+Electronic: 28%
+Experimental: 18%
+Instrumental: 20%
+-----------------------------------------
+Overall classification accuracy: 34.125%
+
+Hyperparameters: 11 8 small ['mfcc'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 52%
+Folk: 65%
+International: 29%
+Hip-Hop: 56%
+Pop: 12%
+Electronic: 30%
+Experimental: 23%
+Instrumental: 13%
+-----------------------------------------
+Overall classification accuracy: 35.0%
+
+Hyperparameters: 11 8 small ['mfcc'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 51%
+Folk: 60%
+International: 35%
+Hip-Hop: 57%
+Electronic: 37%
+Experimental: 22%
+Instrumental: 17%
+Pop: 10%
+-----------------------------------------
+Overall classification accuracy: 36.125%
+
+Hyperparameters: 11 8 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 25%
+Folk: 43%
+International: 16%
+Hip-Hop: 42%
+Pop: 8%
+Electronic: 21%
+Experimental: 16%
+Instrumental: 14%
+-----------------------------------------
+Overall classification accuracy: 23.125%
+
+Hyperparameters: 11 8 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 28%
+Experimental: 16%
+Folk: 47%
+International: 12%
+Electronic: 24%
+Hip-Hop: 30%
+Instrumental: 17%
+Pop: 8%
+-----------------------------------------
+Overall classification accuracy: 22.75%
+
+Hyperparameters: 11 8 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 49%
+Rock: 25%
+International: 15%
+Electronic: 26%
+Hip-Hop: 39%
+Pop: 5%
+Experimental: 15%
+Instrumental: 15%
+-----------------------------------------
+Overall classification accuracy: 23.625%
+
+Hyperparameters: 11 8 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 45%
+Experimental: 14%
+Rock: 34%
+International: 14%
+Hip-Hop: 41%
+Electronic: 22%
+Pop: 5%
+Instrumental: 17%
+-----------------------------------------
+Overall classification accuracy: 24.0%
+
+Hyperparameters: 11 8 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 42%
+Experimental: 11%
+Pop: 7%
+International: 21%
+Rock: 34%
+Hip-Hop: 38%
+Electronic: 19%
+Instrumental: 13%
+-----------------------------------------
+Overall classification accuracy: 23.125%
+
+Hyperparameters: 11 8 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 28%
+Folk: 45%
+International: 14%
+Hip-Hop: 36%
+Pop: 5%
+Experimental: 14%
+Electronic: 16%
+Instrumental: 18%
+-----------------------------------------
+Overall classification accuracy: 22.0%
+
+Hyperparameters: 11 8 small ['mfcc'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 51%
+Folk: 63%
+International: 21%
+Hip-Hop: 70%
+Electronic: 34%
+Pop: 10%
+Experimental: 23%
+Instrumental: 20%
+-----------------------------------------
+Overall classification accuracy: 36.5%
+
+Hyperparameters: 11 8 small ['mfcc'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 51%
+Folk: 54%
+International: 22%
+Hip-Hop: 63%
+Electronic: 33%
+Pop: 8%
+Experimental: 24%
+Instrumental: 20%
+-----------------------------------------
+Overall classification accuracy: 34.375%
+
+Hyperparameters: 11 8 small ['mfcc'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 60%
+Folk: 71%
+International: 38%
+Hip-Hop: 67%
+Pop: 11%
+Electronic: 34%
+Experimental: 21%
+Instrumental: 10%
+-----------------------------------------
+Overall classification accuracy: 39.0%
+
+Hyperparameters: 11 8 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 51%
+Rock: 29%
+International: 6%
+Electronic: 23%
+Hip-Hop: 41%
+Pop: 9%
+Experimental: 19%
+Instrumental: 17%
+-----------------------------------------
+Overall classification accuracy: 24.375%
+
+Hyperparameters: 11 8 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Experimental: 21%
+Folk: 38%
+Rock: 29%
+International: 16%
+Hip-Hop: 33%
+Electronic: 23%
+Instrumental: 14%
+Pop: 6%
+-----------------------------------------
+Overall classification accuracy: 22.5%
+
+Hyperparameters: 11 8 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 41%
+Rock: 25%
+International: 13%
+Hip-Hop: 40%
+Electronic: 20%
+Pop: 7%
+Experimental: 13%
+Instrumental: 25%
+-----------------------------------------
+Overall classification accuracy: 23.0%
+
+Hyperparameters: 11 8 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 48%
+Rock: 27%
+International: 18%
+Electronic: 21%
+Hip-Hop: 37%
+Pop: 5%
+Experimental: 16%
+Instrumental: 18%
+-----------------------------------------
+Overall classification accuracy: 23.75%
+
+Hyperparameters: 11 8 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 47%
+Rock: 24%
+International: 18%
+Electronic: 28%
+Hip-Hop: 38%
+Pop: 4%
+Experimental: 10%
+Instrumental: 18%
+-----------------------------------------
+Overall classification accuracy: 23.375%
+
+Hyperparameters: 11 8 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 48%
+International: 13%
+Hip-Hop: 45%
+Electronic: 15%
+Experimental: 13%
+Rock: 27%
+Pop: 6%
+Instrumental: 17%
+-----------------------------------------
+Overall classification accuracy: 23.0%
+
+Hyperparameters: 11 12 small ['mfcc'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 46%
+Folk: 61%
+International: 27%
+Hip-Hop: 55%
+Electronic: 33%
+Experimental: 26%
+Instrumental: 18%
+Pop: 12%
+-----------------------------------------
+Overall classification accuracy: 34.75%
+
+Hyperparameters: 11 12 small ['mfcc'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 52%
+Folk: 63%
+International: 30%
+Hip-Hop: 56%
+Electronic: 33%
+Pop: 10%
+Experimental: 25%
+Instrumental: 23%
+-----------------------------------------
+Overall classification accuracy: 36.5%
+
+Hyperparameters: 11 12 small ['mfcc'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 54%
+Folk: 58%
+International: 32%
+Hip-Hop: 57%
+Electronic: 32%
+Pop: 13%
+Experimental: 23%
+Instrumental: 18%
+-----------------------------------------
+Overall classification accuracy: 35.875%
+
+Hyperparameters: 11 12 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 24%
+Folk: 44%
+International: 22%
+Hip-Hop: 42%
+Pop: 3%
+Electronic: 22%
+Experimental: 14%
+Instrumental: 15%
+-----------------------------------------
+Overall classification accuracy: 23.25%
+
+Hyperparameters: 11 12 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 26%
+Folk: 40%
+International: 13%
+Hip-Hop: 37%
+Experimental: 12%
+Electronic: 17%
+Instrumental: 22%
+Pop: 9%
+-----------------------------------------
+Overall classification accuracy: 22.0%
+
+Hyperparameters: 11 12 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 47%
+Rock: 26%
+Experimental: 14%
+International: 17%
+Hip-Hop: 33%
+Pop: 3%
+Electronic: 20%
+Instrumental: 26%
+-----------------------------------------
+Overall classification accuracy: 23.25%
+
+Hyperparameters: 11 12 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 32%
+Folk: 47%
+International: 18%
+Hip-Hop: 50%
+Electronic: 20%
+Experimental: 13%
+Pop: 2%
+Instrumental: 10%
+-----------------------------------------
+Overall classification accuracy: 24.0%
+
+Hyperparameters: 11 12 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 49%
+Rock: 30%
+International: 16%
+Electronic: 21%
+Hip-Hop: 37%
+Pop: 10%
+Experimental: 12%
+Instrumental: 16%
+-----------------------------------------
+Overall classification accuracy: 23.875%
+
+Hyperparameters: 11 12 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 48%
+Rock: 31%
+Experimental: 20%
+International: 16%
+Hip-Hop: 40%
+Electronic: 14%
+Instrumental: 20%
+Pop: 6%
+-----------------------------------------
+Overall classification accuracy: 24.375%
+
+Hyperparameters: 11 12 small ['mfcc'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 55%
+Folk: 65%
+International: 27%
+Hip-Hop: 57%
+Pop: 10%
+Electronic: 21%
+Experimental: 16%
+Instrumental: 22%
+-----------------------------------------
+Overall classification accuracy: 34.125%
+
+Hyperparameters: 11 12 small ['mfcc'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 52%
+Folk: 67%
+International: 34%
+Electronic: 33%
+Hip-Hop: 59%
+Pop: 9%
+Experimental: 26%
+Instrumental: 18%
+-----------------------------------------
+Overall classification accuracy: 37.25%
+
+Hyperparameters: 11 12 small ['mfcc'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 46%
+Folk: 63%
+International: 34%
+Hip-Hop: 54%
+Pop: 14%
+Electronic: 35%
+Experimental: 21%
+Instrumental: 28%
+-----------------------------------------
+Overall classification accuracy: 36.875%
+
+Hyperparameters: 11 12 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 28%
+Experimental: 16%
+Folk: 48%
+International: 15%
+Hip-Hop: 44%
+Electronic: 17%
+Pop: 7%
+Instrumental: 21%
+-----------------------------------------
+Overall classification accuracy: 24.5%
+
+Hyperparameters: 11 12 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 30%
+Folk: 42%
+International: 19%
+Hip-Hop: 36%
+Electronic: 21%
+Experimental: 14%
+Instrumental: 19%
+Pop: 5%
+-----------------------------------------
+Overall classification accuracy: 23.25%
+
+Hyperparameters: 11 12 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 48%
+Rock: 25%
+International: 11%
+Hip-Hop: 32%
+Pop: 6%
+Electronic: 24%
+Experimental: 18%
+Instrumental: 19%
+-----------------------------------------
+Overall classification accuracy: 22.875%
+
+Hyperparameters: 11 12 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 46%
+Rock: 26%
+International: 17%
+Hip-Hop: 42%
+Pop: 6%
+Experimental: 13%
+Electronic: 18%
+Instrumental: 15%
+-----------------------------------------
+Overall classification accuracy: 22.875%
+
+Hyperparameters: 11 12 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 41%
+Rock: 26%
+Pop: 6%
+International: 18%
+Hip-Hop: 36%
+Electronic: 19%
+Experimental: 17%
+Instrumental: 18%
+-----------------------------------------
+Overall classification accuracy: 22.625%
+
+Hyperparameters: 11 12 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 47%
+International: 14%
+Hip-Hop: 35%
+Electronic: 21%
+Pop: 8%
+Experimental: 21%
+Instrumental: 14%
+Rock: 25%
+-----------------------------------------
+Overall classification accuracy: 23.125%
+
+Hyperparameters: 11 16 small ['mfcc'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 51%
+Folk: 54%
+International: 29%
+Hip-Hop: 59%
+Electronic: 29%
+Pop: 9%
+Experimental: 24%
+Instrumental: 26%
+-----------------------------------------
+Overall classification accuracy: 35.125%
+
+Hyperparameters: 11 16 small ['mfcc'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 57%
+Folk: 64%
+International: 36%
+Hip-Hop: 57%
+Electronic: 30%
+Pop: 11%
+Experimental: 19%
+Instrumental: 20%
+-----------------------------------------
+Overall classification accuracy: 36.75%
+
+Hyperparameters: 11 16 small ['mfcc'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 61%
+Rock: 52%
+International: 34%
+Hip-Hop: 62%
+Electronic: 39%
+Pop: 10%
+Experimental: 23%
+Instrumental: 23%
+-----------------------------------------
+Overall classification accuracy: 38.0%
+
+Hyperparameters: 11 16 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Experimental: 12%
+Folk: 45%
+Rock: 34%
+International: 10%
+Hip-Hop: 37%
+Electronic: 18%
+Instrumental: 18%
+Pop: 6%
+-----------------------------------------
+Overall classification accuracy: 22.5%
+
+Hyperparameters: 11 16 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 30%
+Folk: 41%
+International: 12%
+Hip-Hop: 36%
+Electronic: 15%
+Experimental: 15%
+Instrumental: 16%
+Pop: 4%
+-----------------------------------------
+Overall classification accuracy: 21.125%
+
+Hyperparameters: 11 16 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Experimental: 16%
+Folk: 41%
+Rock: 30%
+International: 14%
+Hip-Hop: 30%
+Electronic: 22%
+Instrumental: 20%
+Pop: 7%
+-----------------------------------------
+Overall classification accuracy: 22.5%
+
+Hyperparameters: 11 16 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 44%
+Rock: 32%
+International: 10%
+Electronic: 20%
+Hip-Hop: 37%
+Experimental: 19%
+Pop: 6%
+Instrumental: 16%
+-----------------------------------------
+Overall classification accuracy: 23.0%
+
+Hyperparameters: 11 16 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 52%
+Rock: 27%
+International: 23%
+Hip-Hop: 30%
+Electronic: 19%
+Experimental: 16%
+Pop: 5%
+Instrumental: 20%
+-----------------------------------------
+Overall classification accuracy: 24.0%
+
+Hyperparameters: 11 16 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 39%
+Folk: 44%
+International: 18%
+Electronic: 23%
+Hip-Hop: 46%
+Pop: 8%
+Experimental: 19%
+Instrumental: 23%
+-----------------------------------------
+Overall classification accuracy: 27.5%
+
+Hyperparameters: 11 16 small ['mfcc'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 49%
+Folk: 68%
+International: 26%
+Hip-Hop: 60%
+Electronic: 33%
+Experimental: 21%
+Instrumental: 18%
+Pop: 7%
+-----------------------------------------
+Overall classification accuracy: 35.25%
+
+Hyperparameters: 11 16 small ['mfcc'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 50%
+Folk: 51%
+Pop: 13%
+International: 31%
+Hip-Hop: 59%
+Electronic: 27%
+Experimental: 26%
+Instrumental: 21%
+-----------------------------------------
+Overall classification accuracy: 34.75%
+
+Hyperparameters: 11 16 small ['mfcc'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 51%
+Folk: 64%
+International: 35%
+Hip-Hop: 61%
+Electronic: 40%
+Experimental: 17%
+Instrumental: 20%
+Pop: 11%
+-----------------------------------------
+Overall classification accuracy: 37.375%
+
+Hyperparameters: 11 16 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 43%
+Rock: 24%
+International: 11%
+Hip-Hop: 36%
+Electronic: 24%
+Pop: 8%
+Experimental: 12%
+Instrumental: 19%
+-----------------------------------------
+Overall classification accuracy: 22.125%
+
+Hyperparameters: 11 16 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 47%
+International: 13%
+Hip-Hop: 36%
+Rock: 28%
+Electronic: 15%
+Experimental: 16%
+Instrumental: 16%
+Pop: 5%
+-----------------------------------------
+Overall classification accuracy: 22.0%
+
+Hyperparameters: 11 16 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 51%
+Experimental: 15%
+International: 13%
+Rock: 22%
+Hip-Hop: 32%
+Electronic: 18%
+Pop: 7%
+Instrumental: 15%
+-----------------------------------------
+Overall classification accuracy: 21.625%
+
+Hyperparameters: 11 16 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 41%
+Rock: 31%
+International: 19%
+Hip-Hop: 38%
+Pop: 4%
+Electronic: 19%
+Experimental: 11%
+Instrumental: 19%
+-----------------------------------------
+Overall classification accuracy: 22.75%
+
+Hyperparameters: 11 16 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 20%
+Folk: 45%
+International: 17%
+Hip-Hop: 42%
+Electronic: 24%
+Experimental: 17%
+Instrumental: 16%
+Pop: 7%
+-----------------------------------------
+Overall classification accuracy: 23.5%
+
+Hyperparameters: 11 16 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 37%
+International: 23%
+Hip-Hop: 34%
+Electronic: 28%
+Experimental: 18%
+Instrumental: 21%
+Rock: 26%
+Pop: 7%
+-----------------------------------------
+Overall classification accuracy: 24.25%
+
+Hyperparameters: 20 8 small ['mfcc'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 46%
+Folk: 56%
+International: 23%
+Hip-Hop: 53%
+Pop: 17%
+Electronic: 30%
+Experimental: 23%
+Instrumental: 18%
+-----------------------------------------
+Overall classification accuracy: 33.25%
+
+Hyperparameters: 20 8 small ['mfcc'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 53%
+Folk: 54%
+International: 32%
+Hip-Hop: 57%
+Pop: 13%
+Electronic: 30%
+Experimental: 17%
+Instrumental: 16%
+-----------------------------------------
+Overall classification accuracy: 34.0%
+
+Hyperparameters: 20 8 small ['mfcc'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 50%
+Folk: 63%
+International: 32%
+Electronic: 33%
+Hip-Hop: 54%
+Experimental: 17%
+Instrumental: 19%
+Pop: 8%
+-----------------------------------------
+Overall classification accuracy: 34.5%
+
+Hyperparameters: 20 8 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 43%
+Rock: 30%
+International: 16%
+Pop: 5%
+Electronic: 20%
+Hip-Hop: 36%
+Experimental: 17%
+Instrumental: 16%
+-----------------------------------------
+Overall classification accuracy: 22.875%
+
+Hyperparameters: 20 8 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 47%
+Rock: 22%
+International: 16%
+Hip-Hop: 33%
+Electronic: 21%
+Experimental: 16%
+Pop: 10%
+Instrumental: 13%
+-----------------------------------------
+Overall classification accuracy: 22.25%
+
+Hyperparameters: 20 8 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 42%
+Rock: 25%
+Experimental: 14%
+International: 20%
+Hip-Hop: 33%
+Pop: 6%
+Electronic: 17%
+Instrumental: 24%
+-----------------------------------------
+Overall classification accuracy: 22.625%
+
+Hyperparameters: 20 8 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 49%
+Rock: 28%
+International: 16%
+Hip-Hop: 42%
+Electronic: 24%
+Experimental: 14%
+Pop: 9%
+Instrumental: 18%
+-----------------------------------------
+Overall classification accuracy: 25.0%
+
+Hyperparameters: 20 8 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 32%
+Folk: 52%
+Experimental: 11%
+International: 20%
+Hip-Hop: 40%
+Pop: 5%
+Electronic: 24%
+Instrumental: 18%
+-----------------------------------------
+Overall classification accuracy: 25.25%
+
+Hyperparameters: 20 8 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 55%
+International: 18%
+Rock: 30%
+Hip-Hop: 38%
+Electronic: 21%
+Experimental: 19%
+Instrumental: 21%
+Pop: 6%
+-----------------------------------------
+Overall classification accuracy: 26.0%
+
+Hyperparameters: 20 8 small ['mfcc'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 52%
+Folk: 62%
+International: 22%
+Hip-Hop: 61%
+Electronic: 29%
+Experimental: 29%
+Instrumental: 23%
+Pop: 8%
+-----------------------------------------
+Overall classification accuracy: 35.75%
+
+Hyperparameters: 20 8 small ['mfcc'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 53%
+Folk: 62%
+International: 29%
+Hip-Hop: 59%
+Pop: 13%
+Electronic: 26%
+Experimental: 16%
+Instrumental: 26%
+-----------------------------------------
+Overall classification accuracy: 35.5%
+
+Hyperparameters: 20 8 small ['mfcc'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Experimental: 18%
+Rock: 46%
+Folk: 61%
+International: 31%
+Hip-Hop: 63%
+Pop: 8%
+Electronic: 34%
+Instrumental: 18%
+-----------------------------------------
+Overall classification accuracy: 34.875%
+
+Hyperparameters: 20 8 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 45%
+Rock: 18%
+Pop: 8%
+International: 16%
+Hip-Hop: 39%
+Electronic: 16%
+Experimental: 14%
+Instrumental: 16%
+-----------------------------------------
+Overall classification accuracy: 21.5%
+
+Hyperparameters: 20 8 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 34%
+Rock: 29%
+Experimental: 12%
+International: 22%
+Hip-Hop: 35%
+Pop: 15%
+Electronic: 21%
+Instrumental: 19%
+-----------------------------------------
+Overall classification accuracy: 23.375%
+
+Hyperparameters: 20 8 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 44%
+Rock: 20%
+Experimental: 15%
+International: 11%
+Hip-Hop: 34%
+Electronic: 23%
+Pop: 8%
+Instrumental: 12%
+-----------------------------------------
+Overall classification accuracy: 20.875%
+
+Hyperparameters: 20 8 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 31%
+Folk: 45%
+International: 9%
+Hip-Hop: 38%
+Pop: 7%
+Electronic: 23%
+Experimental: 20%
+Instrumental: 21%
+-----------------------------------------
+Overall classification accuracy: 24.25%
+
+Hyperparameters: 20 8 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 48%
+Experimental: 17%
+Rock: 31%
+International: 19%
+Hip-Hop: 40%
+Electronic: 32%
+Pop: 9%
+Instrumental: 23%
+-----------------------------------------
+Overall classification accuracy: 27.375%
+
+Hyperparameters: 20 8 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 44%
+Rock: 27%
+Experimental: 14%
+International: 13%
+Pop: 8%
+Hip-Hop: 28%
+Electronic: 28%
+Instrumental: 22%
+-----------------------------------------
+Overall classification accuracy: 23.0%
+
+Hyperparameters: 20 12 small ['mfcc'] Cosine 3 420
+
+Hyperparameters: 20 12 small ['mfcc'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 51%
+Rock: 43%
+International: 33%
+Hip-Hop: 67%
+Electronic: 22%
+Pop: 23%
+Experimental: 19%
+Instrumental: 30%
+-----------------------------------------
+Overall classification accuracy: 36.0%
+
+Hyperparameters: 20 12 small ['mfcc'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 42%
+Folk: 41%
+International: 32%
+Hip-Hop: 57%
+Pop: 23%
+Electronic: 30%
+Experimental: 30%
+Instrumental: 28%
+-----------------------------------------
+Overall classification accuracy: 35.375%
+
+Hyperparameters: 20 12 small ['mfcc'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 50%
+Folk: 41%
+International: 34%
+Hip-Hop: 62%
+Pop: 16%
+Electronic: 34%
+Experimental: 19%
+Instrumental: 28%
+-----------------------------------------
+Overall classification accuracy: 35.5%
+
+Hyperparameters: 20 12 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 24%
+Pop: 20%
+International: 14%
+Hip-Hop: 44%
+Experimental: 12%
+Instrumental: 24%
+Rock: 21%
+Electronic: 6%
+-----------------------------------------
+Overall classification accuracy: 20.625%
+
+Hyperparameters: 20 12 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 22%
+Folk: 22%
+International: 20%
+Electronic: 13%
+Hip-Hop: 38%
+Experimental: 16%
+Instrumental: 31%
+Pop: 16%
+-----------------------------------------
+Overall classification accuracy: 22.25%
+
+Hyperparameters: 20 12 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 25%
+Folk: 28%
+International: 21%
+Hip-Hop: 37%
+Pop: 13%
+Experimental: 13%
+Electronic: 20%
+Instrumental: 26%
+-----------------------------------------
+Overall classification accuracy: 22.875%
+
+Hyperparameters: 20 12 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Experimental: 17%
+Folk: 18%
+Rock: 18%
+International: 17%
+Electronic: 16%
+Hip-Hop: 44%
+Pop: 16%
+Instrumental: 30%
+-----------------------------------------
+Overall classification accuracy: 22.0%
+
+Hyperparameters: 20 12 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 26%
+Rock: 26%
+International: 14%
+Hip-Hop: 44%
+Electronic: 20%
+Pop: 14%
+Experimental: 11%
+Instrumental: 30%
+-----------------------------------------
+Overall classification accuracy: 23.125%
+
+Hyperparameters: 20 12 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 32%
+International: 22%
+Hip-Hop: 42%
+Electronic: 20%
+Experimental: 13%
+Instrumental: 29%
+Pop: 9%
+Rock: 23%
+-----------------------------------------
+Overall classification accuracy: 23.75%
+
+Hyperparameters: 20 12 small ['mfcc'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 44%
+Folk: 46%
+Pop: 17%
+International: 20%
+Hip-Hop: 59%
+Electronic: 18%
+Experimental: 20%
+Instrumental: 30%
+-----------------------------------------
+Overall classification accuracy: 31.75%
+
+Hyperparameters: 20 12 small ['mfcc'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 40%
+Folk: 47%
+International: 29%
+Hip-Hop: 68%
+Electronic: 36%
+Experimental: 15%
+Instrumental: 28%
+Pop: 16%
+-----------------------------------------
+Overall classification accuracy: 34.875%
+
+Hyperparameters: 20 12 small ['mfcc'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 45%
+Folk: 46%
+International: 28%
+Hip-Hop: 67%
+Pop: 20%
+Electronic: 35%
+Experimental: 17%
+Instrumental: 32%
+-----------------------------------------
+Overall classification accuracy: 36.25%
+
+Hyperparameters: 20 12 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 20%
+Rock: 15%
+International: 13%
+Hip-Hop: 44%
+Electronic: 17%
+Pop: 20%
+Experimental: 15%
+Instrumental: 25%
+-----------------------------------------
+Overall classification accuracy: 21.125%
+
+Hyperparameters: 20 12 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 19%
+Folk: 24%
+International: 18%
+Hip-Hop: 43%
+Electronic: 23%
+Pop: 16%
+Experimental: 9%
+Instrumental: 23%
+-----------------------------------------
+Overall classification accuracy: 21.875%
+
+Hyperparameters: 20 12 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 23%
+Folk: 21%
+International: 20%
+Hip-Hop: 51%
+Electronic: 24%
+Pop: 19%
+Experimental: 6%
+Instrumental: 33%
+-----------------------------------------
+Overall classification accuracy: 24.625%
+
+Hyperparameters: 20 12 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 27%
+Folk: 28%
+International: 17%
+Hip-Hop: 43%
+Electronic: 18%
+Pop: 20%
+Experimental: 9%
+Instrumental: 29%
+-----------------------------------------
+Overall classification accuracy: 23.875%
+
+Hyperparameters: 20 12 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Experimental: 17%
+Folk: 26%
+Rock: 23%
+International: 17%
+Electronic: 25%
+Pop: 19%
+Hip-Hop: 45%
+Instrumental: 26%
+-----------------------------------------
+Overall classification accuracy: 24.75%
+
+Hyperparameters: 20 12 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 22%
+International: 11%
+Hip-Hop: 50%
+Electronic: 20%
+Pop: 13%
+Experimental: 9%
+Instrumental: 28%
+Rock: 25%
+-----------------------------------------
+Overall classification accuracy: 22.25%
+
+Hyperparameters: 20 16 small ['mfcc'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 48%
+Folk: 44%
+International: 27%
+Hip-Hop: 58%
+Electronic: 23%
+Experimental: 17%
+Instrumental: 29%
+Pop: 18%
+-----------------------------------------
+Overall classification accuracy: 33.0%
+
+Hyperparameters: 20 16 small ['mfcc'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Experimental: 24%
+Rock: 51%
+Folk: 44%
+International: 28%
+Hip-Hop: 63%
+Electronic: 31%
+Pop: 21%
+Instrumental: 29%
+-----------------------------------------
+Overall classification accuracy: 36.375%
+
+Hyperparameters: 20 16 small ['mfcc'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 47%
+Folk: 55%
+Pop: 21%
+International: 40%
+Hip-Hop: 56%
+Electronic: 36%
+Experimental: 21%
+Instrumental: 33%
+-----------------------------------------
+Overall classification accuracy: 38.625%
+
+Hyperparameters: 20 16 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 28%
+Rock: 18%
+International: 17%
+Hip-Hop: 45%
+Electronic: 15%
+Pop: 18%
+Experimental: 12%
+Instrumental: 26%
+-----------------------------------------
+Overall classification accuracy: 22.375%
+
+Hyperparameters: 20 16 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 23%
+Folk: 18%
+International: 23%
+Hip-Hop: 42%
+Pop: 19%
+Electronic: 23%
+Experimental: 11%
+Instrumental: 25%
+-----------------------------------------
+Overall classification accuracy: 23.0%
+
+Hyperparameters: 20 16 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 31%
+International: 21%
+Rock: 17%
+Pop: 11%
+Hip-Hop: 40%
+Electronic: 26%
+Experimental: 13%
+Instrumental: 27%
+-----------------------------------------
+Overall classification accuracy: 23.25%
+
+Hyperparameters: 20 16 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 34%
+International: 19%
+Rock: 21%
+Pop: 13%
+Hip-Hop: 45%
+Electronic: 19%
+Experimental: 15%
+Instrumental: 25%
+-----------------------------------------
+Overall classification accuracy: 23.875%
+
+Hyperparameters: 20 16 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 24%
+Folk: 20%
+International: 16%
+Hip-Hop: 42%
+Electronic: 26%
+Pop: 17%
+Experimental: 16%
+Instrumental: 30%
+-----------------------------------------
+Overall classification accuracy: 23.875%
+
+Hyperparameters: 20 16 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Cosine 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 23%
+Folk: 25%
+Pop: 19%
+International: 21%
+Hip-Hop: 46%
+Electronic: 15%
+Experimental: 11%
+Instrumental: 23%
+-----------------------------------------
+Overall classification accuracy: 22.875%
+
+Hyperparameters: 20 16 small ['mfcc'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 47%
+Folk: 42%
+Pop: 16%
+International: 20%
+Hip-Hop: 65%
+Experimental: 15%
+Electronic: 27%
+Instrumental: 31%
+-----------------------------------------
+Overall classification accuracy: 32.875%
+
+Hyperparameters: 20 16 small ['mfcc'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 51%
+Rock: 53%
+Pop: 21%
+International: 31%
+Hip-Hop: 64%
+Electronic: 26%
+Experimental: 18%
+Instrumental: 27%
+-----------------------------------------
+Overall classification accuracy: 36.375%
+
+Hyperparameters: 20 16 small ['mfcc'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 48%
+Folk: 49%
+International: 29%
+Hip-Hop: 62%
+Electronic: 33%
+Pop: 29%
+Experimental: 23%
+Instrumental: 49%
+-----------------------------------------
+Overall classification accuracy: 40.25%
+
+Hyperparameters: 20 16 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 16%
+International: 17%
+Rock: 20%
+Hip-Hop: 54%
+Electronic: 16%
+Pop: 15%
+Experimental: 14%
+Instrumental: 29%
+-----------------------------------------
+Overall classification accuracy: 22.625%
+
+Hyperparameters: 20 16 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 21%
+Rock: 17%
+International: 21%
+Pop: 14%
+Hip-Hop: 36%
+Electronic: 22%
+Experimental: 10%
+Instrumental: 23%
+-----------------------------------------
+Overall classification accuracy: 20.5%
+
+Hyperparameters: 20 16 small ['spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 24%
+International: 19%
+Rock: 16%
+Hip-Hop: 38%
+Pop: 14%
+Electronic: 19%
+Experimental: 9%
+Instrumental: 24%
+-----------------------------------------
+Overall classification accuracy: 20.375%
+
+Hyperparameters: 20 16 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 420
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 25%
+Rock: 17%
+Experimental: 12%
+Pop: 14%
+International: 17%
+Hip-Hop: 41%
+Electronic: 19%
+Instrumental: 26%
+-----------------------------------------
+Overall classification accuracy: 21.375%
+
+Hyperparameters: 20 16 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 800
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 34%
+International: 16%
+Rock: 24%
+Hip-Hop: 44%
+Electronic: 22%
+Pop: 15%
+Experimental: 12%
+Instrumental: 31%
+-----------------------------------------
+Overall classification accuracy: 24.75%
+
+Hyperparameters: 20 16 small ['mfcc', 'chroma_cens', 'tonnetz', 'spectral_contrast', 'spectral_centroid', 'spectral_bandwidth', 'spectral_rolloff', 'rmse', 'zcr'] Euclidean 3 1000
+begin training
+training done
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 31%
+Rock: 22%
+International: 26%
+Hip-Hop: 39%
+Electronic: 23%
+Pop: 12%
+Experimental: 14%
+Instrumental: 25%
+-----------------------------------------
+Overall classification accuracy: 24.0%
+
+
