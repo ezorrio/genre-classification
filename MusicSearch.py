@@ -3,7 +3,6 @@ from FMA import *
 from LSH import *
 from tqdm import tqdm
 
-
 class MusicSearch:
     def __init__(self, data_path, n, l, subset='small', feature_fields=None, measure='Cosine', k=5, magic_number=800):
         if feature_fields is None:
@@ -36,6 +35,8 @@ class MusicSearch:
         self.print_classification_results(self._test_set)
 
     def find_similar_tracks(self, feature):
+        """ takes a feature vector which is hashed in every hash table 
+         and returns track_ids of similar tracks """ 
         result = set()
         for hash_table in self.lsh.hashes:
             result.update(hash_table.get(feature))
@@ -53,12 +54,13 @@ class MusicSearch:
             return self.euclidean_similarity(feature, training_feature)
 
         else:
-            print("Invalid similarity measure.\n")
-            return
+            raise Exception("Invalid similarity measure.\n")
 
     def k_neighbors(self, feature):
-        # returns list of track_ids of knn of one track
-
+        """ Returns list of track_ids of knn for given feature vector. 
+            self._magic_number refers to the size of the random subset of similar tracks, 
+            needed for the approximation of the knn problem. 
+            """
         similar_tracks = self.find_similar_tracks(feature)
 
         k_neighbors = []
@@ -69,6 +71,9 @@ class MusicSearch:
                                          replace=True):  # random subset of similar tracks
             k_neighbors.append((track_id, self.calculate_similarity(feature, track_id)))
 
+        ''' (track_id, similarity)-pairs are sorted via the similarity and only
+            k-most similar tracks are returned '''
+            
         if self._measure == "Cosine":  # ideally 1 --> sorted descending
             k_neighbors = sorted(k_neighbors, key=lambda l: l[1], reverse=True)[:self._k]
 
@@ -80,7 +85,8 @@ class MusicSearch:
         return k_neighbors
 
     def predict_genre(self, feature):
-        # predicts genre for given feature vector
+        """ predicts genre for given feature vector """
+        
         k_neighbors = self.k_neighbors(feature)
         indices = [np.where(self._training_set[0].index == track_id)[0][0] for track_id in k_neighbors]
         genres_of_k_neighbors = [self._training_set[1].iloc[index] for index in indices]
@@ -92,6 +98,8 @@ class MusicSearch:
             return
 
     def classification_score(self, test):
+        """ Returns a dictionary containing the absolute number of correct 
+            predictions per genre """
         scores_per_genres = {}
 
         for track_id, feature in tqdm(test[0].iterrows(), total=test[0].shape[0]):
@@ -99,9 +107,10 @@ class MusicSearch:
             id = np.where(test[0].index == track_id)[0][0]
             true_genre = test[1].iloc[id]
 
+            # Creates/calculates the dic-entries
             if true_genre == predicted_genre:
                 if true_genre not in scores_per_genres:
-                    scores_per_genres[true_genre] = 0
+                    scores_per_genres[true_genre] = 1
                 else:
                     scores_per_genres[true_genre] += 1
 
@@ -113,6 +122,8 @@ class MusicSearch:
         print('Classification Accuracy per genre:\n')
 
         for genre_score in scores_per_genres:
+            ''' for FMA "small" dataset the absolute number of correct prediction 
+                equals the percentage values since there are 100 songs per genre.'''
             print(f'{genre_score}: {scores_per_genres[genre_score]}%')
 
         overall_score = np.average([scores_per_genres[count] for count in scores_per_genres])
