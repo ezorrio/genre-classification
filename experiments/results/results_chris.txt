@@ -1,0 +1,204 @@
+
+Hyperparameters: 5 16 small mfcc Cosine 5 800
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 64%
+Folk: 60%
+International: 41%
+Hip-Hop: 56%
+Pop: 17%
+Electronic: 46%
+Experimental: 23%
+Instrumental: 21%
+-----------------------------------------
+Overall classification accuracy: 41.0%
+
+Hyperparameters: 5 16 small mfcc Cosine 5 1000
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 63%
+Folk: 67%
+International: 39%
+Hip-Hop: 41%
+Electronic: 45%
+Pop: 11%
+Experimental: 17%
+Instrumental: 23%
+-----------------------------------------
+Overall classification accuracy: 38.25%
+
+Hyperparameters: 5 16 small mfcc Cosine 5 1500
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 61%
+Rock: 56%
+International: 44%
+Hip-Hop: 58%
+Pop: 11%
+Electronic: 42%
+Experimental: 28%
+Instrumental: 27%
+-----------------------------------------
+Overall classification accuracy: 40.875%
+
+Hyperparameters: 5 16 small mfcc Euclidean 5 800
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 53%
+Folk: 59%
+International: 37%
+Hip-Hop: 58%
+Pop: 15%
+Electronic: 44%
+Experimental: 23%
+Instrumental: 17%
+-----------------------------------------
+Overall classification accuracy: 38.25%
+
+Hyperparameters: 5 16 small mfcc Euclidean 5 1000
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 66%
+Folk: 56%
+Pop: 11%
+International: 41%
+Hip-Hop: 62%
+Electronic: 42%
+Experimental: 19%
+Instrumental: 26%
+-----------------------------------------
+Overall classification accuracy: 40.375%
+
+Hyperparameters: 5 16 small mfcc Euclidean 5 1500
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 57%
+Folk: 57%
+International: 49%
+Hip-Hop: 60%
+Electronic: 55%
+Pop: 20%
+Experimental: 15%
+Instrumental: 29%
+-----------------------------------------
+Overall classification accuracy: 42.75%
+
+Hyperparameters: 11 16 small mfcc Cosine 5 800
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 53%
+Rock: 61%
+International: 39%
+Electronic: 37%
+Hip-Hop: 59%
+Pop: 10%
+Experimental: 26%
+Instrumental: 30%
+-----------------------------------------
+Overall classification accuracy: 39.375%
+
+Hyperparameters: 11 16 small mfcc Cosine 5 1000
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 56%
+Folk: 61%
+International: 39%
+Hip-Hop: 62%
+Electronic: 42%
+Experimental: 22%
+Instrumental: 23%
+Pop: 11%
+-----------------------------------------
+Overall classification accuracy: 39.5%
+
+Hyperparameters: 11 16 small mfcc Cosine 5 1500
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 62%
+Folk: 58%
+International: 49%
+Hip-Hop: 62%
+Pop: 14%
+Electronic: 35%
+Experimental: 19%
+Instrumental: 21%
+-----------------------------------------
+Overall classification accuracy: 40.0%
+
+Hyperparameters: 11 16 small mfcc Euclidean 5 800
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Folk: 65%
+Rock: 61%
+International: 43%
+Hip-Hop: 59%
+Pop: 14%
+Electronic: 41%
+Experimental: 15%
+Instrumental: 25%
+-----------------------------------------
+Overall classification accuracy: 40.375%
+
+Hyperparameters: 11 16 small mfcc Euclidean 5 1000
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 62%
+Folk: 64%
+International: 41%
+Hip-Hop: 63%
+Electronic: 38%
+Pop: 14%
+Experimental: 14%
+Instrumental: 28%
+-----------------------------------------
+Overall classification accuracy: 40.5%
+
+Hyperparameters: 11 16 small mfcc Euclidean 5 1500
+-----------------------------------------
+Genre classification for training and validation data:
+
+Classification Accuracy per genre:
+
+Rock: 59%
+Folk: 63%
+International: 43%
+Hip-Hop: 59%
+Pop: 14%
+Electronic: 45%
+Experimental: 17%
+Instrumental: 23%
+-----------------------------------------
+Overall classification accuracy: 40.375%
