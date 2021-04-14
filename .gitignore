@@ -2,3 +2,4 @@
 __pycache__/FMA.cpython-38.pyc
 __pycache__/LSH.cpython-38.pyc
 *.pyc
+results.txt
