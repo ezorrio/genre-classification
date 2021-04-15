@@ -1,0 +1,97 @@
+training_vs_validation(20, 16, "small", ["mfcc"], "Cosine", 10, 1500)
+
+Rock: 65%
+Folk: 70%
+International: 39%
+Hip-Hop: 68%
+Electronic: 42%
+Experimental: 14%
+Instrumental: 34%
+Pop: 13%
+-----------------------------------------
+Overall classification accuracy: 43.125%
+
+training_vs_validation(20, 20, "small", ["mfcc"], "Cosine", 15, 1500)
+
+Rock: 67%
+Folk: 73%
+International: 47%
+Hip-Hop: 63%
+Electronic: 45%
+Pop: 15%
+Experimental: 15%
+Instrumental: 27%
+-----------------------------------------
+Overall classification accuracy: 44.0%
+
+training_vs_validation(25, 20, "small", ["mfcc"], "Cosine", 15, 1500)
+Rock: 65%
+Folk: 70%
+International: 40%
+Hip-Hop: 64%
+Electronic: 36%
+Experimental: 18%
+Pop: 17%
+Instrumental: 29%
+-----------------------------------------
+Overall classification accuracy: 42.375%
+
+training_vs_validation(20, 25, "small", ["mfcc"], "Cosine", 15, 1500)
+Folk: 70%
+Rock: 64%
+International: 42%
+Electronic: 44%
+Hip-Hop: 70%
+Pop: 15%
+Experimental: 20%
+Instrumental: 36%
+-----------------------------------------
+Overall classification accuracy: 45.125%
+
+training_vs_validation(20, 25, "small", ["mfcc"], "Cosine", 20, 1500)
+Rock: 68%
+Folk: 74%
+International: 47%
+Hip-Hop: 72%
+Pop: 15%
+Electronic: 46%
+Experimental: 13%
+Instrumental: 33%
+-----------------------------------------
+Overall classification accuracy: 46.0%
+
+training_vs_validation(20, 30, "small", ["mfcc"], "Cosine", 25, 1500)
+Rock: 72%
+Folk: 73%
+International: 46%
+Hip-Hop: 72%
+Electronic: 45%
+Pop: 13%
+Experimental: 14%
+Instrumental: 30%
+-----------------------------------------
+Overall classification accuracy: 45.625%
+
+training_and_validation_vs_test(20, 25, "small", ["mfcc"], "Cosine", 20, 8000)
+Rock: 48%
+Experimental: 8%
+Instrumental: 47%
+Folk: 8%
+Pop: 23%
+Electronic: 32%
+International: 46%
+Hip-Hop: 59%
+-----------------------------------------
+Overall classification accuracy: 33.875%
+
+training_vs_test(20, 25, "small", ["mfcc"], "Cosine", 20, 8000)
+Rock: 50%
+Instrumental: 40%
+Folk: 14%
+Pop: 21%
+Electronic: 27%
+International: 38%
+Experimental: 9%
+Hip-Hop: 58%
+-----------------------------------------
+Overall classification accuracy: 32.125%
