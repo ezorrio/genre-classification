@@ -1,3 +1,10 @@
+'''
+MMD-Assignment #1: Local Sensitive Hashing (LSH) for Item Search and 
+Genre Classification for FMAs "small" dataset.
+    
+Team: Emin Guliev, Justus Rass & Christian Wiskott.
+'''
+
 The 4 Python files should be placed in a directory with the .csv files in a folder called 'metadata'.
 The data files are not included in the zip file due to file size limitations of moodle.
 
