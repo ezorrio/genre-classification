@@ -10,13 +10,13 @@ from MusicSearch import *
 import datetime
 
 # Optimal Hyperparameters obtained after testing
-number_of_hashtables = 5
-hash_length = 12
-k_nearest_neighbors = 5
+number_of_hashtables = 20
+hash_length = 25
+k_nearest_neighbors = 20
 subset = 'small'
 feature_fields = 'mfcc'
 measure = 'Cosine'
-magic_number = 5
+magic_number = 8000
 
 
 print(" ##### Phase-1: Training the model with the training data and "
