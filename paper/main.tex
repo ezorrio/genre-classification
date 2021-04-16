@@ -142,7 +142,7 @@ The genre classification for the entire test set culminates in the \textit{print
 \section*{Training}
 
 \subsection*{Parameters and their definition}
-In order to speed-up the calculation, instead of comparing given element with every single item in hashtables, we pick up maximum this amount of items in a random way
+In order to speed-up the calculation, instead of comparing given element with every single item in hashtables, we pick up maximum this amount of items in a random way.
 \begin{table*}[htb]
 \begin{center}
 \resizebox{\textwidth}{!}{%
@@ -165,7 +165,7 @@ In order to speed-up the calculation, instead of comparing given element with ev
 
 \subsection*{Automatic execution}
 
-In order to understand the behavior and the way each parameters affect the accuracy of the model, we have written a small script to evaluate different combinations of above-mentioned parameters.
+In order to understand the behavior and the way each parameter affects the accuracy of the model, we have written a small script to evaluate different combinations of below-mentioned parameters on the validation set.
 
 1. While inspecting execution logs, it was quite clear that among of all feature combinations tested, best value for \textit{feature\_field} = "mfcc".
 
@@ -173,7 +173,7 @@ In order to understand the behavior and the way each parameters affect the accur
 
 \begin{table*}[htb]
 \begin{center}
-\begin{tabular}{|l|l|}
+\begin{tabular}{|l|c|}
 \hline
 \textbf{K}          & \textbf{Amount of models with accuracy >= 40\%}                             
 \\ \hline
@@ -188,7 +188,7 @@ In order to understand the behavior and the way each parameters affect the accur
 \end{center}
 \end{table*}
 
-3. In most cases increasing \textit{magic\_number} improves accuracy
+3. In most cases increasing \textit{magic\_number} improves accuracy while simultaneously increasing the run-time.  
 
 4. We have 13 models with accuracy of more than 40\%. 6 of them use Cosine as distance measure, 7 - Euclidean.
 
@@ -211,21 +211,20 @@ Based on that knowledge, we can fix following parameters:
 \\ \hline
 \textit{measure}                & Cosine 
 \\ \hline
-\textit{magic\_number}          & As much as possible (keep in mind runtime)
+\textit{magic\_number}          & As much as possible (keep runtime in mind)
 \\ \hline
 \end{tabular}
 \caption{Fixed parameters and their values}
 \end{center}
 \end{table*}
 
-Therefore, \textit{k}, \textit{number\_of\_hashtables} and \textit{hash\_length} parameters left and are subject of experiments further.
+Therefore parameters \textit{k}, \textit{number\_of\_hashtables} and \textit{hash\_length} are left and are subject of further experiments.
 
-As a starting point, we took best model (accuracy-wise) from automatic executions. Magic number is set to 1500
-Below steps taken for parameters optimization are provided:
+As a starting point, we took the best model (accuracy-wise) from automatic executions. Magic number was set to 1500. Below steps taken for parameters optimization are provided:
 
 \begin{table*}[htb]
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|l}
+\begin{tabular}{|l|l|c|c|l|l|}
 \hline
 \textbf{Step №} & \textbf{k} & \textbf{number\_of\_hashtables} & \textbf{hash\_length} & \textbf{Accuracy} & \textbf{Notes}      
 \\ \hline
@@ -250,29 +249,29 @@ Below steps taken for parameters optimization are provided:
 \end{table*}
 
 \newpage
-So far best result was gained within experiment 6. Let us use that for evaluation of the model with \textit{magic\_number}=8000. Instead of picking subset of items to compare with it will use the all the items available, thus using KNN instead of aKNN.
+So far best result was gained within experiment 6. Let us use that for evaluation of the model with \textit{magic\_number}=8000. Instead of picking a subset of items to compare with, it will use all the items available, thus using KNN instead of aKNN, which was done in order to maximize the classification accuracy while accepting the increased run-time which was around 12 minutes. 
 
 \begin{figure}[ht]
     \begin{centering}
         \includegraphics[width=0.75\textwidth]{Training vs validation.png}
- 	    \caption{Training vs Validation Data}
+ 	    \caption{Training vs Validation Data. The blue line represents the average classification score over all genres.}
  	    {\small  }
         \label{Fig:1}  
     \end{centering}
 \end{figure}
 
-Definitely there is possibility that we can pick up better hyperparameters, but result of 45\% is pretty acceptable: as we have 8 genres, training\/validation\/test data in uniformly distributed among genres, the probability of randomly predicting the correct genre is $\frac{1}{8}$=12.5\% which is much less than 45\%, so model definitely works as needed.
+There is definitely a possibility that we can pick up better hyper-parameters, but the result of 45\% is pretty acceptable: as we have 8 genres, training, validation and test data are uniformly distributed among genres, the probability of randomly predicting the correct genre is $\frac{1}{8}$=12.5\% which is much less than 45\%, so model definitely works as intended.
 
-Additionally it is worth to mention that all evaluations were done on validation set, such that we don't know yet how will it work of the test data.
+Additionally it is worth to mention that all evaluations were done on the  validation set, such that we don't yet know how it would work on the test data.
 
 \subsection*{Evaluating test data}
 
-For that purpose we will use the best model gained from the previous section, combine train the model on training/training and validation sets combined, and evaluate against test set.
+For that purpose we will use the best model gained from the previous section, combine the training and validation set to the new training set and evaluate against the test set.
 
 \begin{figure}[ht]
     \begin{centering}
         \includegraphics[width=0.75\textwidth]{Training vs test.png}
- 	    \caption{Training vs Test Data}
+ 	    \caption{Training vs Test Data. The blue line represents the average classification score over all genres.}
  	    {\small  }
         \label{Fig:2}  
     \end{centering}
@@ -281,14 +280,14 @@ For that purpose we will use the best model gained from the previous section, co
 \begin{figure}[ht]
     \begin{centering}
         \includegraphics[width=0.75\textwidth]{Training and validation vs test.png}
- 	    \caption{Training and Validation vs Test Data}
+ 	    \caption{Training and Validation vs Test Data. The blue line represents the average classification score over all genres.}
  	    {\small  }
         \label{Fig:3}  
     \end{centering}
 \end{figure}
 \clearpage
 
-When evaluating against the final testing data the model trained on the only the training data and accuracy of 32.125\% is achieved, while the model trained on the training and validation data achieves an accuracy of 33.875\% with the following hyperparameters.
+When evaluating against the final testing data, the model trained on only the training data achieved an accuracy of 32.125\% with around 12 minutes of run-time, while the model trained on the training and validation data achieved an accuracy of 33.875\% with around 16 minutes of run-time, using the following hyper-parameters:
 
 \begin{table*}[h]
 \begin{center}
@@ -305,7 +304,7 @@ When evaluating against the final testing data the model trained on the only the
 \textit{magic\_number} &    8000 \\ \hline
 \end{tabular}%
 
-\caption{Parameters used for runs against test data}
+\caption{Parameters used for runs against test data.}
 \end{center}
 \end{table*}
 
