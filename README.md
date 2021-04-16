@@ -1,7 +1,7 @@
 # MMD-Assignment #1: Local Sensitive Hashing (LSH) for Item Search and Genre Classification for FMA dataset.
-##Team: Emin Guliev, Justus Rass & Christian Wiskott.
+## Team: Emin Guliev, Justus Rass & Christian Wiskott.
 
-###Requirements
+### Requirements
 - Python 3
 - Numpy
 - Matplotlib
