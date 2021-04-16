@@ -21,3 +21,8 @@ the command line or a Python IDE of your choice.
 
 Alternatively the github repo can be cloned from:
 https://github.com/ezorrio/genre-classification.git
+
+The experiments folder contains the ipython notebooks used to carry out the tests for validation.
+The experiments/results folder contains the raw results for the test suite used for k=3, 5, 7 nearest
+neighbours, as well as a condensed list of the best achieved results and the manual tests carried out
+with those parameters.
