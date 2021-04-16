@@ -7,7 +7,7 @@
 - Matplotlib
 - Jupyter
 
-###Cloning
+### Cloning
 
 Github repo can be cloned from:
 ```bash
@@ -18,7 +18,7 @@ If you have data files fetched from original source, clone using following comma
 GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/ezorrio/genre-classification
 ```
 
-###Description
+### Description
 The 4 Python files should be placed in a directory with the .csv files in a folder called 'metadata'.
 
 - FMA.py
