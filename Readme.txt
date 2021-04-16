@@ -16,8 +16,8 @@ The data files are not included in the zip file due to file size limitations of 
     features.csv
     tracks.csv
 
-To run it with the hyperparameters used for the final results, simply execute the 'main.py' file in 
-the command line or a Python IDE of your choice.
+To run it with the hyperparameters used for the final results, simply execute the 'experiments_manual.ipynb' file
+located in the experiments folder.
 
 Alternatively the github repo can be cloned from:
 https://github.com/ezorrio/genre-classification.git
